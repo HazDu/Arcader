@@ -1,0 +1,21 @@
+{
+  "productName": "Arcader",
+  "copyright": "Copyright © 2022 ${author}",
+  "appId": "arcader",
+  "asar": true,
+  "directories": {
+    "output": "release/${version}",
+    "buildResources": "src/electron/assets"
+  },
+  "files": ["dist/**"],
+  "linux": {
+    "target": ["AppImage"],
+    "artifactName": "linux_${version}.${ext}"
+  },
+  "nsis": {
+    "oneClick": false,
+    "perMachine": false,
+    "allowToChangeInstallationDirectory": true,
+    "deleteAppDataOnUninstall": false
+  }
+}
