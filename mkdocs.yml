@@ -1,3 +1,4 @@
 site_name: Arcader
+site_url: https://arcader.gnmyt.dev
 theme:
   name: material
