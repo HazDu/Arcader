@@ -131,3 +131,6 @@ dist
 
 # editor files
 .idea
+
+# electron
+dist-electron
