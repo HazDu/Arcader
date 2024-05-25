@@ -1,0 +1,22 @@
+{
+  "name": "arcader",
+  "description": "A simple UI for DIY arcade machines with coin slots",
+  "version": "1.0.0",
+  "main": "dist/electron/main.js",
+  "license": "MIT",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build && electron-builder --linux"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "sass": "^1.77.2"
+  },
+  "devDependencies": {
+    "electron": "29.0.1",
+    "electron-builder": "^23.3.3",
+    "vite": "^3.0.7",
+    "vite-plugin-electron": "^0.9.0"
+  }
+}
