@@ -4,6 +4,6 @@ import "@/assets/styles/main.sass";
 
 ReactDOM.createRoot(document.getElementById('root')).render(
     <StrictMode>
-        <h2>Hello, world!</h2>
+        <h1>LOADING...</h1>
     </StrictMode>
 );
