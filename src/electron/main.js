@@ -1,19 +1,15 @@
 const path = require("node:path");
-const { app, BrowserWindow } = require("electron");
+const {app, BrowserWindow, ipcMain} = require("electron");
 const {SerialPort} = require("serialport");
 const {ReadlineParser} = require("@serialport/parser-readline");
 
-const port = new SerialPort({ path: "/dev/ttyACM0", baudRate: 9600 });
-port.on("open", () => {
-    console.log("Coin acceptor connected");
-});
+let mainWindow;
 
-const parser = port.pipe(new ReadlineParser());
-parser.on('data', console.log);
-
+let port;
+let parser;
 
 const createWindow = () => {
-    const win = new BrowserWindow({
+    mainWindow = new BrowserWindow({
         resizable: false,
         webPreferences: {
             preload: path.join(__dirname, "preload.js")
@@ -21,18 +17,40 @@ const createWindow = () => {
     });
 
     if (process.env.VITE_DEV_SERVER_URL) {
-        win.loadURL(process.env.VITE_DEV_SERVER_URL);
+        mainWindow.loadURL(process.env.VITE_DEV_SERVER_URL);
     } else {
-        win.loadFile(path.join(__dirname, "../", "index.html"));
+        mainWindow.loadFile(path.join(__dirname, "../", "index.html"));
     }
 
-    win.show();
-    win.setFullScreen(true);
+    mainWindow.show();
+    mainWindow.setFullScreen(true);
 }
 
 app.whenReady().then(() => {
     createWindow();
+
+    ipcMain.on("connect-acceptor", (event, data) => {
+        loadConnector();
+    });
 });
+
+const loadConnector = () => {
+    port = new SerialPort({path: "/dev/ttyACM0", baudRate: 9600});
+    parser = port.pipe(new ReadlineParser());
+    port.on("open", () => {
+        console.log("Coin acceptor connected");
+
+        mainWindow.webContents.send("acceptor-connected", true);
+    });
+
+    port.on("error", () => {
+        mainWindow.webContents.send("acceptor-connected", false);
+    });
+
+    parser.on("data", (data) => {
+        console.log("Data from coin acceptor: " + data);
+    });
+}
 
 app.on('window-all-closed', () => {
     if (process.platform !== "darwin") {
