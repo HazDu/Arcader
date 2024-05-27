@@ -48,7 +48,7 @@ const loadConnector = () => {
     });
 
     parser.on("data", (data) => {
-        console.log("Data from coin acceptor: " + data);
+        mainWindow.webContents.send("coin-detected", data === "100073000\r");
     });
 }
 
