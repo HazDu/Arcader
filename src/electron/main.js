@@ -10,7 +10,6 @@ let parser;
 
 const createWindow = () => {
     mainWindow = new BrowserWindow({
-        resizable: false,
         webPreferences: {
             preload: path.join(__dirname, "preload.js")
         }
@@ -23,6 +22,7 @@ const createWindow = () => {
     }
 
     mainWindow.show();
+    mainWindow.maximize();
     mainWindow.setFullScreen(true);
 }
 
