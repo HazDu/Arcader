@@ -4,6 +4,7 @@ import "@/assets/styles/main.sass";
 import {createBrowserRouter, RouterProvider} from "react-router-dom";
 import Loading from "@/pages/Loading";
 import CoinInsert from "@/pages/CoinInsert";
+import Home from "@/pages/Home";
 
 const router = createBrowserRouter([
     {
@@ -17,6 +18,10 @@ const router = createBrowserRouter([
     {
         path: "/error",
         element: <div>ERROR</div>
+    },
+    {
+        path: "/home",
+        element: <Home />
     },
     {
         path: "*",
