@@ -3,15 +3,22 @@
   "description": "A simple UI for DIY arcade machines with coin slots",
   "version": "1.0.0",
   "main": "src/electron/main.js",
+  "author": {
+    "name": "Mathias Wagner",
+    "email": "mathias@gnmyt.dev",
+    "url": "https://gnmyt.dev"
+  },
   "license": "MIT",
   "scripts": {
     "dev": "vite",
-    "build": "vite build && electron-builder --linux"
+    "build": "vite build && cp -r src/electron dist && electron-builder --linux"
   },
   "dependencies": {
     "@serialport/parser-readline": "^12.0.0",
+    "joystick": "^0.1.2",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "react-router-dom": "^6.23.1",
     "sass": "^1.77.2",
     "serialport": "^12.0.0"
   },
