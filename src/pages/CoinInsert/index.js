@@ -1,0 +1,1 @@
+export {CoinInsert as default} from "./CoinInsert";
