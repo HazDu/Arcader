@@ -1,0 +1,1 @@
+export {GameSelect as default} from "./GameSelect";
