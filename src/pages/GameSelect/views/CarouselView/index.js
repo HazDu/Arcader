@@ -1,0 +1,1 @@
+export {CarouselView as default} from "./CarouselView";
