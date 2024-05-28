@@ -1,0 +1,29 @@
+.game-select-page
+  .current-game-name
+    font-size: 3rem
+    margin-top: 2rem
+    color: #A91515
+    text-shadow: 0 0 1rem black
+
+  .game-select-grid-ui
+    display: flex
+    align-items: center
+    gap: 5rem
+
+    .game-select-grid
+      display: grid
+      grid-template-columns: repeat(4, 1fr)
+      height: 35rem
+      gap: 6rem
+      padding: 5rem
+      overflow-y: scroll
+
+      img
+        border-radius: 1rem
+        width: 16rem
+        aspect-ratio: 2/3
+        transition: transform 0.2s
+
+      .grid-selected
+        transform: scale(1.1)
+        z-index: 1
