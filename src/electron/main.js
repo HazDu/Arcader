@@ -2,6 +2,7 @@ const path = require("node:path");
 const {app, BrowserWindow, ipcMain} = require("electron");
 const {SerialPort} = require("serialport");
 const {ReadlineParser} = require("@serialport/parser-readline");
+const joystick = require("./utils/joystick");
 
 let mainWindow;
 
@@ -29,7 +30,15 @@ const createWindow = () => {
 app.whenReady().then(() => {
     createWindow();
 
-    ipcMain.on("connect-acceptor", (event, data) => {
+    joystick.onKeyDown((number) => {
+        mainWindow.webContents.send("joystick-button", number);
+    });
+
+    joystick.onAxis((axis) => {
+        mainWindow.webContents.send("joystick-axis", axis);
+    });
+
+    ipcMain.on("connect-acceptor", () => {
         loadConnector();
     });
 });
