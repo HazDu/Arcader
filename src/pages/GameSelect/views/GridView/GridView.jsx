@@ -1,10 +1,10 @@
-import { IconButton } from "../../../../common/components/IconButton/IconButton";
+import { IconButton } from "@/common/components/IconButton/IconButton";
 import ArrowDownImage from "@/common/assets/img/arrow-down.png";
 import { useEffect, useState, useRef } from "react";
 import { generateDropShadowFromImageColor } from "@/common/utils/color";
 import "./styles.sass";
 
-export const GridView = ({ currentLevel, setCurrentLevel, data }) => {
+export const GridView = ({ currentLevel, setCurrentLevel, data, columns = 4 }) => {
     const [currentGame, setCurrentGame] = useState(data[0]);
     const [gameData, setGameData] = useState(data);
     const scrollContainerRef = useRef(null);
@@ -23,7 +23,7 @@ export const GridView = ({ currentLevel, setCurrentLevel, data }) => {
     useEffect(() => {
         const scrollToIndex = (index) => {
             const rowHeight = 28;
-            const scrollTop = Math.floor(index / 4) * rowHeight * 16;
+            const scrollTop = Math.floor(index / columns) * rowHeight * 16;
             scrollContainerRef.current.scrollTo({ top: scrollTop, behavior: "smooth" });
         };
 
@@ -35,16 +35,16 @@ export const GridView = ({ currentLevel, setCurrentLevel, data }) => {
 
             switch (axis) {
                 case "left":
-                    nextIndex = currentIndex % 4 === 0 ? currentIndex - 1 : currentIndex - 1;
+                    nextIndex = currentIndex % columns === 0 ? currentIndex - 1 : currentIndex - 1;
                     break;
                 case "right":
-                    nextIndex = currentIndex % 4 === 3 ? currentIndex + 1 : currentIndex + 1;
+                    nextIndex = currentIndex % columns === 3 ? currentIndex + 1 : currentIndex + 1;
                     break;
                 case "up":
-                    nextIndex = currentIndex - 4;
+                    nextIndex = currentIndex - columns;
                     break;
                 case "down":
-                    nextIndex = currentIndex + 4;
+                    nextIndex = currentIndex + columns;
                     break;
                 default:
                     break;
@@ -52,7 +52,7 @@ export const GridView = ({ currentLevel, setCurrentLevel, data }) => {
 
             if (nextIndex < 0) {
                 nextIndex = 0;
-                setCurrentLevel(2);
+                setCurrentLevel(columns === 4 ? 2 : 1);
             }
             if (nextIndex >= data.length) nextIndex = data.length - 1;
             if (nextIndex !== currentIndex) {
@@ -61,10 +61,15 @@ export const GridView = ({ currentLevel, setCurrentLevel, data }) => {
             }
         };
 
-        window.electron.receive("joystick-axis", onJoystick);
+
+        if (currentLevel === 3) {
+            window.electron.receive("joystick-axis", onJoystick);
+        }
 
         return () => {
-            window.electron.endReceiveAll("joystick-axis");
+            if (currentLevel === 3) {
+                window.electron.endReceiveAll("joystick-axis");
+            }
         };
     }, [currentLevel, currentGame, data, setCurrentLevel]);
 
@@ -72,12 +77,13 @@ export const GridView = ({ currentLevel, setCurrentLevel, data }) => {
 
     return (
         <>
-            <p className="current-game-name">{currentGame.title}</p>
-            <div className="game-select-grid-ui">
-                <div className="game-select-grid" ref={scrollContainerRef}>
+        {columns === 4 && <p className="current-game-name">{currentGame.title}</p>}
+            <div className="game-select-grid-ui" style={{ width: columns === 4 ? "100%" : "60vw"}}>
+                <div className="game-select-grid" ref={scrollContainerRef} style={{ gridTemplateColumns: `repeat(${columns || 4}, 1fr)`,
+                    height: columns === 4 ? "45vh" : "70vh"}}>
                     {gameData.map((game, index) => (
                         <img
-                            className={game.id === currentGame.id ? "grid-selected" : ""}
+                            className={game.id === currentGame.id && currentLevel === 3 ? "grid-selected" : ""}
                             key={index}
                             src={game.thumbnail}
                             alt={game.title}
@@ -85,7 +91,7 @@ export const GridView = ({ currentLevel, setCurrentLevel, data }) => {
                         />
                     ))}
                 </div>
-                <IconButton image={ArrowDownImage} />
+                {columns === 4 && <IconButton image={ArrowDownImage} />}
             </div>
         </>
     );
