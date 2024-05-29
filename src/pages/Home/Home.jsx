@@ -22,11 +22,11 @@ export const Home = () => {
                 if (button === 0) {
                     setCurrentSelection(current => {
                         if (current === 0)
-                            navigate("/quickplay");
+                            navigate("/game-select");
                         else if (current === 1)
                             navigate("/game-select");
                         else if (current === 2)
-                            navigate("/favorites");
+                            navigate("/game-select");
                         return current;
                     });
                 }
