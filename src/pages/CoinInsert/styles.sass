@@ -1,8 +1,40 @@
 .insert-page
+  background-image: url('/assets/textures/coinBackground.png')
+  background-size: cover
+  background-repeat: no-repeat
+  background-position: center
+  height: 100vh
   display: flex
+  flex-direction: column
   align-items: center
   justify-content: center
-  height: 100vh
+
+  .sub-text
+    position: absolute
+    bottom: 3rem
+    text-align: center
+    width: 35rem
+    font-size: 1.5rem
 
 .insert-page h1
-  font-size: 48pt
+  font-size: 62pt
+  text-shadow: 0 0 1rem black
+
+.coin-animation
+  display: flex
+  .acceptor
+    width: 12rem
+
+  .coin
+    width: 3rem
+    height: 3rem
+    margin-top: 1.5rem
+    animation: coin 4s infinite
+
+@keyframes coin
+  20%
+    transform: translateX(0)
+  50%
+    transform: translateX(-6rem)
+  80%
+    transform: translateX(0)
