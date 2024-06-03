@@ -94,8 +94,6 @@ export const Search = () => {
 
     useEffect(() => {
         const onClick = (event, button) => {
-            if (button !== 0) return;
-
             if (currentLevel === 0) navigate("/home");
         }
 

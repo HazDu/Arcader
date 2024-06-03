@@ -19,17 +19,15 @@ export const Home = () => {
             });
 
             window.electron.receive("joystick-button", (event, button) => {
-                if (button === 0) {
-                    setCurrentSelection(current => {
-                        if (current === 0)
-                            navigate("/game-select");
-                        else if (current === 1)
-                            navigate("/game-select");
-                        else if (current === 2)
-                            navigate("/game-select");
-                        return current;
-                    });
-                }
+                setCurrentSelection(current => {
+                    if (current === 0)
+                        navigate("/game-select");
+                    else if (current === 1)
+                        navigate("/game-select");
+                    else if (current === 2)
+                        navigate("/game-select");
+                    return current;
+                });
             });
         }, 1000);
 

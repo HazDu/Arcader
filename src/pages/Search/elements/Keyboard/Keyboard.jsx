@@ -10,8 +10,6 @@ export const Keyboard = ({currentLevel, setCurrentLevel, setSearch}) => {
 
     useEffect(() => {
         const onClick = (event, button) => {
-            if (button !== 0) return;
-
             if (currentLevel === 1) {
                 if (currentLetter === -1) {
                     setSearch(search => search.slice(0, -1));
