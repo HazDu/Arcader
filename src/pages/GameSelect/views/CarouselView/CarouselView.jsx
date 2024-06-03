@@ -11,6 +11,11 @@ export const CarouselView = ({currentLevel, setCurrentLevel, data}) => {
     const [currentGame, setCurrentGame] = useState(data[0]);
 
     useEffect(() => {
+        const onClick = (event, button) => {
+            if (currentLevel === 3) {
+                window.electron.send("load-game", currentGame.id);
+            }
+        }
         const onJoystick = (event, axis) => {
             if (currentLevel === 3) {
                 if (axis === "left") {
@@ -23,10 +28,12 @@ export const CarouselView = ({currentLevel, setCurrentLevel, data}) => {
             }
         }
 
+        window.electron.receive("joystick-button", onClick);
         window.electron.receive("joystick-axis", onJoystick);
 
         return () => {
             if (currentLevel === 3) {
+                window.electron.endReceiveAll("joystick-button");
                 window.electron.endReceiveAll("joystick-axis");
             }
         }
