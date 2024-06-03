@@ -9,7 +9,7 @@
   },
   "files": ["dist/**"],
   "linux": {
-    "target": ["deb"],
+    "target": ["AppImage"],
     "artifactName": "arcader.${ext}"
   },
   "nsis": {
