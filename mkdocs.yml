@@ -2,3 +2,11 @@ site_name: Arcader
 site_url: https://arcader.gnmyt.dev
 theme:
   name: material
+  language: de
+  logo: assets/logo.png
+  favicon: assets/logo.png
+  palette:
+    primary: red
+    scheme: slate
+extra_css:
+  - assets/fonts.css
