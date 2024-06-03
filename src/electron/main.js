@@ -3,6 +3,7 @@ const {app, BrowserWindow, ipcMain} = require("electron");
 const {SerialPort} = require("serialport");
 const {ReadlineParser} = require("@serialport/parser-readline");
 const joystick = require("./utils/joystick");
+const emulation = require("./utils/emulation");
 
 let mainWindow;
 
@@ -36,6 +37,10 @@ app.whenReady().then(() => {
 
     joystick.onAxis((axis) => {
         mainWindow.webContents.send("joystick-axis", axis);
+    });
+
+    ipcMain.on("load-game", (event, gameId) => {
+        emulation.startById(gameId);
     });
 
     ipcMain.on("connect-acceptor", () => {
