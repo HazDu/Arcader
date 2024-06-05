@@ -4,8 +4,7 @@
 
 Bei den Komponenten hast du sehr viele Freiheiten. Alles, was du irgendwie Zuhause herumliegen hast, kannst du
 verwenden. Ob du einen alten PC, ein Raspberry Pi oder andere Boards verwendest, ist dir überlassen.  
-Die folgende Liste zeigt dir die Komponenten, die ich verwendet habe:  
-
+Die folgende Liste zeigt dir die Komponenten, die ich verwendet habe:
 
 | Produkt                                       | Link                                                                                                                             | Kosten |
 |-----------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------|--------|
@@ -25,28 +24,35 @@ Die folgende Liste zeigt dir die Komponenten, die ich verwendet habe:
 
 ## Baumaterial
 
-| Produkt                                      | Länge  | Breite | Höhe    | Menge |
-|----------------------------------------------|--------|--------|---------|-------|
-| :material-pine-tree-variant: Holzlatte       | 1800mm | 20mm   | 20mm    | 2x    |
-| :material-pine-tree-variant: Holzlatte       | 1270mm | 20mm   | 20mm    | 1x    |
-| :material-pine-tree-variant: Holzlatte       | 1100mm | 20mm   | 20mm    | 4x    |
-| :material-pine-tree-variant: Holzlatte       | 700mm  | 20mm   | 20mm    | 10x   |
-| :material-pine-tree-variant: Holzlatte       | 580mm  | 20mm   | 20mm    | 2x    |
-| :material-pine-tree-variant:  Holzlatte      | 460mm  | 20mm   | 20mm    | 6x    |
-| :material-pine-tree-variant: Holzlatte       | 400mm  | 20mm   | 20mm    | 2x    |
-| :material-pine-tree-variant: Holzlatte       | 300mm  | 20mm   | 20mm    | 2x    |
-| :material-pine-tree-variant: Holzlatte       | 80mm   | 20mm   | 20mm    | 2x    |
-| :material-mirror-rectangle: Plexiglasplatte  | 700mm  | 160mm  | 3 - 5mm | 1x    |
-| :material-pine-tree-variant: Hartfaserplatte | 1800mm | 500mm  | 2 - 4mm | 2x    |
-| :material-pine-tree-variant: Hartfaserplatte | 1100mm | 700mm  | 2 - 4mm | 1x    |
-| :material-pine-tree-variant: Hartfaserplatte | 700mm  | 600mm  | 2 - 4mm | 1x    |
-| :material-pine-tree-variant: Hartfaserplatte | 700mm  | 300mm  | 2 - 4mm | 1x    |
-| :material-pine-tree-variant: Hartfaserplatte | 700mm  | 250mm  | 2 - 4mm | 1x    |
-| :material-pine-tree-variant: Hartfaserplatte | 160mm  | 100mm  | 2 - 4mm | 1x    |
+Du wirst mit großer Wahrscheinlichkeit nicht die exakten Maße in einem Baumarkt finden. Am besten ist es also, wenn du
+dir 
+13 [20 mm x 20mm x 2400mm Holzleisten](https://www.obi.de/p/1040195/quadratleiste-kiefer-20-mm-x-20-mm-laenge-2400-mm)
+kaufst und diese dann auf die benötigten Maße zuschneidest.
+
+| Produkt                                       | Länge  | Breite | Höhe    | Menge |
+|-----------------------------------------------|--------|--------|---------|-------|
+| :material-pine-tree-variant: Ersatz Holzlatte | 2400mm | 20mm   | 20mm    | 2x    |
+| :material-pine-tree-variant: Holzlatte        | 1800mm | 20mm   | 20mm    | 2x    |
+| :material-pine-tree-variant: Holzlatte        | 1270mm | 20mm   | 20mm    | 1x    |
+| :material-pine-tree-variant: Holzlatte        | 1100mm | 20mm   | 20mm    | 4x    |
+| :material-pine-tree-variant: Holzlatte        | 700mm  | 20mm   | 20mm    | 10x   |
+| :material-pine-tree-variant: Holzlatte        | 580mm  | 20mm   | 20mm    | 2x    |
+| :material-pine-tree-variant:  Holzlatte       | 460mm  | 20mm   | 20mm    | 6x    |
+| :material-pine-tree-variant: Holzlatte        | 400mm  | 20mm   | 20mm    | 2x    |
+| :material-pine-tree-variant: Holzlatte        | 300mm  | 20mm   | 20mm    | 2x    |
+| :material-pine-tree-variant: Holzlatte        | 80mm   | 20mm   | 20mm    | 2x    |
+| :material-mirror-rectangle: Plexiglasplatte   | 700mm  | 160mm  | 3 - 5mm | 1x    |
+| :material-pine-tree-variant: Hartfaserplatte  | 1800mm | 500mm  | 2 - 4mm | 2x    |
+| :material-pine-tree-variant: Hartfaserplatte  | 1100mm | 700mm  | 2 - 4mm | 1x    |
+| :material-pine-tree-variant: Hartfaserplatte  | 700mm  | 600mm  | 2 - 4mm | 1x    |
+| :material-pine-tree-variant: Hartfaserplatte  | 700mm  | 300mm  | 2 - 4mm | 1x    |
+| :material-pine-tree-variant: Hartfaserplatte  | 700mm  | 250mm  | 2 - 4mm | 1x    |
+| :material-pine-tree-variant: Hartfaserplatte  | 160mm  | 100mm  | 2 - 4mm | 1x    |
 
 ## Werkzeug
 
-Wenn du dieses Projekt planst, wirst du vermutlich schon einiges an Werkzeug besitzen. Hier ist trotzdem nochmal eine Liste
+Wenn du dieses Projekt planst, wirst du vermutlich schon einiges an Werkzeug besitzen. Hier ist trotzdem nochmal eine
+Liste
 der Werkzeuge, die ich verwendet habe:
 
 | Produkt        | Link                                                                                                                       | Preis  |
