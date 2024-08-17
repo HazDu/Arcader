@@ -59,4 +59,4 @@ der Werkzeuge, die ich verwendet habe:
 |----------------|----------------------------------------------------------------------------------------------------------------------------|--------|
 | 2mm HSS-Bohrer | [Contorion](https://www.contorion.de/p/holex-spiralbohrer-hss-rollgewalzt-n-c99030823?diameter_mm=2&simple_sku=66714661x1) | 0,46€  |
 | Cuttermesser   | [OBI](https://www.obi.de/p/9258401/obi-cuttermesser)                                                                       | 2,99€  |
-| Akkuschrauber  | [Amazon](https://www.amazon.de/dp/B07MMBKG7C)                                                                              | 38,89€ |
+| Akkuschrauber  | [Amazon](https://www.amazon.de/dp/B07MMBKG7C)                                                                              | 38,89€ | 
