@@ -23,5 +23,5 @@ nur eine grobe Schätzung und kann je nach Qualität der Komponenten und deinem 
 
 ## Und jetzt?
 
-Gegliedert ist die Dokumentation in Hardware und Software. Gehe dabei die Seitenleiste links von oben nach unten durch,
+Gegliedert ist die Dokumentation in Aufbau und Software. Gehe dabei die Seitenleiste links von oben nach unten durch,
 um alle Schritte zu sehen. Viel Spaß beim Bauen!
