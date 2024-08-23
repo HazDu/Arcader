@@ -1,8 +1,8 @@
 site_name: Arcader
-site_url: https://arcader.gnmyt.dev
+site_url: https://arcader.hazdu.de
 copyright: Copyright &copy; 2024 <a href="https://github.com/HazDu">Haz_Du</a> und <a href="https://gnmyt.dev">GNM</a>
-repo_url: https://github.com/gnmyt/Arcader
-edit_uri: https://github.com/gnmyt/Arcader/edit/main/docs
+repo_url: https://github.com/HazDu/Arcader
+edit_uri: https://github.com/HazDu/Arcader/edit/main/docs
 theme:
   name: material
   language: de

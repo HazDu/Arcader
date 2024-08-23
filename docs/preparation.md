@@ -41,7 +41,7 @@ kaufst und diese dann auf die benötigten Maße zuschneidest.
 | :material-pine-tree-variant: Holzlatte        | 400mm  | 20mm   | 20mm    | 2x    |
 | :material-pine-tree-variant: Holzlatte        | 300mm  | 20mm   | 20mm    | 2x    |
 | :material-pine-tree-variant: Holzlatte        | 80mm   | 20mm   | 20mm    | 2x    |
-| :material-mirror-rectangle: Plexiglasplatte   | 700mm  | 160mm  | 3 - 5mm | 1x    |
+| :material-mirror-rectangle: Plexiglasplatte   | 700mm  | 120mm  | 3 - 5mm | 1x    |
 | :material-pine-tree-variant: Hartfaserplatte  | 1800mm | 500mm  | 2 - 4mm | 2x    |
 | :material-pine-tree-variant: Hartfaserplatte  | 1100mm | 700mm  | 2 - 4mm | 1x    |
 | :material-pine-tree-variant: Hartfaserplatte  | 700mm  | 600mm  | 2 - 4mm | 1x    |
