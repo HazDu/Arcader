@@ -20,7 +20,7 @@ Hier wiederholst du quasi einfach noch mal Schritt 1 nur weiter oben.
 ![loading error.](./assets/pic_guide_3.png)
 
 ### Schritt 4:
-Wenn du jetzt etwas an deinem Gestell wackelst, merkst du, dass es noch ziemlich nachgibt. Deshalb baust du jetzt einige diagonale Latten ein. Bevor du jetzt aber loslegst, scroll noch etwas nach unten und schau dir den [Tipp](https://arcader.hazdu.de/hardware/#Tipp-Schritt-4) an.
+Wenn du jetzt etwas an deinem Gestell wackelst, merkst du, dass es noch ziemlich nachgibt. Deshalb baust du jetzt einige diagonale Latten ein. Bevor du jetzt aber loslegst, scroll noch etwas nach unten und schau dir den [Tipp](https://arcader.hazdu.de/hardware/#tipp-schritt-4) an.
 ![loading error.](./assets/pic_guide_4.png)
 ### Tipp Schritt 4:
 Wenn du einen einfachen Weg brauchst, die Winkel an den Diagonalen zu messen, halte die Latte von außen an und mach innen einen Strich, genau so wie in der unteren Grafik.
