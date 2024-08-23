@@ -52,3 +52,7 @@ Um sicher zu gehen ob der Abstand wirklich stimmt, kannst du zum Prüfen deine 7
 ### Schritt 10:
 Bisher sind die beiden Teile ja lediglich durch die zwei Latten hinten verbunden. Das änderst du jetzt! Dafür setzt du zwei Latte n wie gezeigt ein. Und für die Abschrägungen nicht vergessen, was du in [Tipp Schritt 4](https://arcader.hazdu.de/hardware/#tipp-schritt-4) gelernt hast.
 ![loading error.](./assets/pic_guide_10.png)
+
+### Schritt 11:
+Hier musst du jetzt etwas improvisieren, da jeder Monitor einen etwas anderen Formfaktor hat. Also allgemein brauchst du eine Halterung für den Bildschirm. Im Bild siehst du eine mögliche Lösung, welche ich gewählt habe.
+![loading error.](./assets/pic_guide_11.png)
