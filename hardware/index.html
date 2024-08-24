@@ -1,0 +1,1101 @@
+
+<!doctype html>
+<html lang="de" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://arcader.hazdu.de/hardware/">
+      
+      
+        <link rel="prev" href="../preparation/">
+      
+      
+        <link rel="next" href="../software/">
+      
+      
+      <link rel="icon" href="../assets/logo.png">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.33">
+    
+    
+      
+        <title>Aufbau - Arcader</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.3cba04c6.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/fonts.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="red" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#einfuhrung" class="md-skip">
+          Zum Inhalt
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Kopfzeile">
+    <a href=".." title="Arcader" class="md-header__button md-logo" aria-label="Arcader" data-md-component="logo">
+      
+  <img src="../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Arcader
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Aufbau
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Suche" placeholder="Suche" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Suche">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Zurücksetzen" aria-label="Zurücksetzen" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Suche wird initialisiert
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/HazDu/Arcader" title="Zum Repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Arcader" class="md-nav__button md-logo" aria-label="Arcader" data-md-component="logo">
+      
+  <img src="../assets/logo.png" alt="logo">
+
+    </a>
+    Arcader
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/HazDu/Arcader" title="Zum Repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Willkommen
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../preparation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Vorbereitung
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Aufbau
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Aufbau
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Inhaltsverzeichnis">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Inhaltsverzeichnis
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#einfuhrung" class="md-nav__link">
+    <span class="md-ellipsis">
+      Einführung
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-grundgestell" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Grundgestell
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Grundgestell">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#schritt-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Schritt 1:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#schritt-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Schritt 2:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#schritt-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Schritt 3:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#schritt-4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Schritt 4:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tipp-schritt-4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tipp Schritt 4:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#schritt-5" class="md-nav__link">
+    <span class="md-ellipsis">
+      Schritt 5:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#schritt-6" class="md-nav__link">
+    <span class="md-ellipsis">
+      Schritt 6:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#schritt-7" class="md-nav__link">
+    <span class="md-ellipsis">
+      Schritt 7:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#schritt-8" class="md-nav__link">
+    <span class="md-ellipsis">
+      Schritt 8:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#schritt-9" class="md-nav__link">
+    <span class="md-ellipsis">
+      Schritt 9:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tipp-schritt-9" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tipp Schritt 9:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#schritt-10" class="md-nav__link">
+    <span class="md-ellipsis">
+      Schritt 10:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#schritt-11" class="md-nav__link">
+    <span class="md-ellipsis">
+      Schritt 11:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-button-panel" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Button Panel
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Button Panel">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#schritt-1_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Schritt 1:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#schritt-2_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Schritt 2:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#schritt-3_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Schritt 3:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#schritt-4_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Schritt 4:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-verkleidung" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Verkleidung
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Verkleidung">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#schritt-1_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Schritt 1:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#schritt-2_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Schritt 2:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#schritt-3_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Schritt 3:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#schritt-4_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Schritt 4:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#schritt-5_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Schritt 5:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#schritt-6_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Schritt 6:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#schritt-7_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Schritt 7:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../software/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Software
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Inhaltsverzeichnis">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Inhaltsverzeichnis
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#einfuhrung" class="md-nav__link">
+    <span class="md-ellipsis">
+      Einführung
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-grundgestell" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Grundgestell
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Grundgestell">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#schritt-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Schritt 1:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#schritt-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Schritt 2:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#schritt-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Schritt 3:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#schritt-4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Schritt 4:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tipp-schritt-4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tipp Schritt 4:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#schritt-5" class="md-nav__link">
+    <span class="md-ellipsis">
+      Schritt 5:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#schritt-6" class="md-nav__link">
+    <span class="md-ellipsis">
+      Schritt 6:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#schritt-7" class="md-nav__link">
+    <span class="md-ellipsis">
+      Schritt 7:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#schritt-8" class="md-nav__link">
+    <span class="md-ellipsis">
+      Schritt 8:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#schritt-9" class="md-nav__link">
+    <span class="md-ellipsis">
+      Schritt 9:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tipp-schritt-9" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tipp Schritt 9:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#schritt-10" class="md-nav__link">
+    <span class="md-ellipsis">
+      Schritt 10:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#schritt-11" class="md-nav__link">
+    <span class="md-ellipsis">
+      Schritt 11:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-button-panel" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Button Panel
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Button Panel">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#schritt-1_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Schritt 1:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#schritt-2_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Schritt 2:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#schritt-3_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Schritt 3:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#schritt-4_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Schritt 4:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-verkleidung" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Verkleidung
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Verkleidung">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#schritt-1_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Schritt 1:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#schritt-2_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Schritt 2:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#schritt-3_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Schritt 3:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#schritt-4_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Schritt 4:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#schritt-5_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Schritt 5:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#schritt-6_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Schritt 6:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#schritt-7_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Schritt 7:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+  <h1>Aufbau</h1>
+
+<h2 id="einfuhrung">Einführung</h2>
+<p>Ok, du hast also die benötigten Baumaterialien organisiert? Gut! Dann zeige ich dir nun, wie du das Grundgerüst deines Arcade Automaten aufziehst. Sprich alles vom Holzgestell bis zum Verkabeln der Komponennten. Solltest du bei Letzterem unsicher sein, kannst du dir das <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">Tutorial zum Einrichten</a> des Automaten anschauen oder uns per <a href="https://github.com/HazDu/Arcader/issues/new?assignees=HazDu&labels=question&projects=&template=question.md&title=Question" target="_blank">GitHub issue template</a>
+ für jegliche Fragen erreichen.</p>
+<h2 id="1-grundgestell">1. Grundgestell</h2>
+<p>Als erstes errichtest du das grundgestell, das mag etwas kompliziert wirken, jedoch sollte es mit der bereitgestellten Bildanleitung einfach sein.
+Zusätzlich kannst du dir das Modell aus allen Winkeln auf <a href="https://sketchfab.com/3d-models/arcade-machine-wood-base-7800679fd0f54210a0e7d8027a0f3bdf" target="_blank">Sketchfab</a>
+ ansehen.<br />
+ Für den Bau noch einige Tipps:<br />
+ -Löcher für Schrauben mit dem 2mm Bohrer vorbohren<br />
+ -Für Verbindungen bestenfalls zwei Schrauben verwenden  </p>
+<h3 id="schritt-1">Schritt 1:</h3>
+<p>Zu erst baust du den Rahmen, der auf dem Boden steht.
+<img alt="loading error." src="../assets/pic_guide_1.png" /></p>
+<h3 id="schritt-2">Schritt 2:</h3>
+<p>Jetzt ziehst du den Kasten mal etwas in die Höhe. Dafür einfach in den vier Ecken die Latten festschrauben, wie im Bild zu erkennen ist. Damit hast du dann tatsächlich auch schon die Maximalhöhe des Automaten erreicht.
+<img alt="loading error." src="../assets/pic_guide_2.png" /></p>
+<h3 id="schritt-3">Schritt 3:</h3>
+<p>Hier wiederholst du quasi einfach noch mal Schritt 1 nur weiter oben.
+<img alt="loading error." src="../assets/pic_guide_3.png" /></p>
+<h3 id="schritt-4">Schritt 4:</h3>
+<p>Wenn du jetzt etwas an deinem Gestell wackelst, merkst du, dass es noch ziemlich nachgibt. Deshalb baust du jetzt einige diagonale Latten ein. Bevor du jetzt aber loslegst, scroll noch etwas nach unten und schau dir den <a href="https://arcader.hazdu.de/hardware/#tipp-schritt-4">Tipp</a> an.
+<img alt="loading error." src="../assets/pic_guide_4.png" /></p>
+<h3 id="tipp-schritt-4">Tipp Schritt 4:</h3>
+<p>Wenn du einen einfachen Weg brauchst, die Winkel an den Diagonalen zu messen, halte die Latte von außen an und mach innen einen Strich, genau so wie in der unteren Grafik.
+<img alt="loading error." src="../assets/pic_guide_4.5.png" /></p>
+<h3 id="schritt-5">Schritt 5:</h3>
+<p>Nun stellst du dein Gestell erst mal bei seite. Jetzt wird nämlich der obere Teil gebaut. Diesen baust du am besten zunächst einzeln zusammen, da das Ganze sonst etwas wackelig wird.
+<img alt="loading error." src="../assets/pic_guide_5.png" /></p>
+<h3 id="schritt-6">Schritt 6:</h3>
+<p>Für den nächsten Schritt legst du das Gestell am besten auf eine der beiden Seiten. Jetzt kannst du nämlich ganz einfach den vorher gebauten Teil anschrauben, ohne diesen dauernd halten zu müssen.
+<img alt="loading error." src="../assets/pic_guide_6.png" /></p>
+<h3 id="schritt-7">Schritt 7:</h3>
+<p>Als nächstes verschraubst du zwei Latten diagonal über die soeben entstandenen Ecken. Hier ist der Winkel nicht allzu wichtig, in meinem Fall beträgt er circa 20°. Die Latten bringen Stabilität in den oberen Bereich und du kannst den Automaten danach wieder aufstellen.
+<img alt="loading error." src="../assets/pic_guide_7.png" /></p>
+<h3 id="schritt-8">Schritt 8:</h3>
+<p>Um das obere Gebälge zu vervollständigen, kommt hinten noch eine Querstrebe hin und zwei kurze Latten verbinden die obere Front mit den Diagonalen aus dem letzten Schritt.
+<img alt="loading error." src="../assets/pic_guide_8.png" /></p>
+<h3 id="schritt-9">Schritt 9:</h3>
+<p>Vielleicht siehst du schon wo später das Button Panel hin kommt. Dieses ist am besten licht angeschrägt. Um dies zu erreichen, mach dir das Leben leicht, indem du einfach zwei Latten übereinander befestigst, so wie im Bild zu sehen. Die rote Markierung zeigt dir, welchen Abstand du dabei beachten musst. Aber Obacht! Auch hier gibt es wieder einen <a href="https://arcader.hazdu.de/hardware/#tipp-schritt-9">Tipp</a>.
+<img alt="loading error." src="../assets/pic_guide_9.png" /></p>
+<h3 id="tipp-schritt-9">Tipp Schritt 9:</h3>
+<p>Um sicher zu gehen ob der Abstand wirklich stimmt, kannst du zum Prüfen deine 700mm x 200mm Platte drüber legen und schauen ob sie an allen Ecken bündig aufliegt.
+<img alt="loading error." src="../assets/pic_guide_9.5.png" /></p>
+<h3 id="schritt-10">Schritt 10:</h3>
+<p>Bisher sind die beiden Teile ja lediglich durch die zwei Latten hinten verbunden. Das änderst du jetzt! Dafür setzt du zwei Latte n wie gezeigt ein. Und für die Abschrägungen nicht vergessen, was du in <a href="https://arcader.hazdu.de/hardware/#tipp-schritt-4">Tipp Schritt 4</a> gelernt hast.
+<img alt="loading error." src="../assets/pic_guide_10.png" /></p>
+<h3 id="schritt-11">Schritt 11:</h3>
+<p>Hier musst du jetzt etwas improvisieren, da jeder Monitor einen etwas anderen Formfaktor hat. Also allgemein brauchst du eine Halterung für den Bildschirm. Im Bild siehst du eine mögliche Lösung, welche ich gewählt habe.
+<img alt="loading error." src="../assets/pic_guide_11.png" /></p>
+<h2 id="2-button-panel">2. Button Panel</h2>
+<p>Als nächstes kümmerst du dich um das Button Panel Hier gibt es keine strikten Vorgaben, da du selbst entscheiden must, wie viele Buttons du für notwendig hällst und wie du sie anordnest, um sie angenehm zu drücken. Wenn du dir jedoch unsicher bist, kannst du dich an meinen Vorgaben orientieren, da sie auf dem standard Layout typischer Arcade Automaten basieren.</p>
+<h3 id="schritt-1_1">Schritt 1:</h3>
+<p>Als erstes nimmst du dir deine 700mm x 200mm Hartfaserplatte, sowie den 30mm Forstnerbohrer her. Dann bohrst du die Löcher für die Buttons und noch zwei, durch die du die Joysticks stecken kannst. Beachte beim Bohren, dass der Forstnerbohrer mehr Material greift, also solltest du nicht stur durchbohren, sondern ihn alle paar Sekunden aus dem Holz holen und ca. 10 Sek. warten. Das ganze könnte zum Beispiel so aussehen:
+<img alt="loading error." src="../assets/pic_guide_12.png" /></p>
+<h3 id="schritt-2_1">Schritt 2:</h3>
+<p>Das Bild zeigt die Unterseite von deinem Button Panel. Halte den Joystick von unten gegen das Panel und richte ihn mittig entsprechend des Lochs aus. Dann fährst du jedes Loch in den Ecken des Joysticks nach. An den angezeichneten Stellen bohrst du jetzt durch und schraubst den Joystick fest.
+<img alt="loading error." src="../assets/pic_guide_13.png" /></p>
+<h3 id="schritt-3_1">Schritt 3:</h3>
+<p>Jetzt steckst du in die übrigen Löcher im Panel die Buttons rein und ziehst bei jedem die Plastik Mutter fest. Jetzt ist das Panel von außen fertig und sieht ca. so aus: 
+<img alt="loading error." src="../assets/pic_guide_14.png" /></p>
+<h3 id="schritt-4_1">Schritt 4:</h3>
+<p>Als letztes schraubst du einfach dein Panel an den Automaten und fertig.
+<img alt="loading error." src="../assets/pic_guide_15.png" /></p>
+<h2 id="3-verkleidung">3. Verkleidung</h2>
+<p>In diesem Abschnitt geht es darum dein Gestell mit Platten zu verkleiden. Es kann sein, dass du hier einige Platten noch einige mm bis cm kürzen musst, nim dafür am besten ein Cutter Messer und ein Langes Lineal, eine Wasserwage oder ähnliches.</p>
+<h3 id="schritt-1_2">Schritt 1:</h3>
+<p>Zum Anfang mal was leichtes, du nimmst die 700mm x 1100mm Platte. Die kommt vorne dran, damit du das Teil auch gut treten kannst, wenn du mal wieder letzter in Mariokart wirst.
+<img alt="loading error." src="../assets/pic_guide_16.png" /></p>
+<h3 id="schritt-2_2">Schritt 2:</h3>
+<p>Jetzt wirds leider doch noch mal bissel nerfig. Du musst jetzt nämlich ein mal die Ecken von deinem Bildschirm abmessen und diese auf die 700mm x 600mm Platte übertragen, das Ganze dann aussägen (Stichsäge oder Cutter) und festschrauben. Aber ich sag du schaffst das!
+<img alt="loading error." src="../assets/pic_guide_17.png" /></p>
+<h3 id="schritt-3_2">Schritt 3:</h3>
+<p>Die nächste Platte(700mm x 300mm) geht jetzt aber wieder ganz chillig. Die bringst du jetzt wie gezeigt an:
+<img alt="loading error." src="../assets/pic_guide_18.png" /></p>
+<h3 id="schritt-4_2">Schritt 4:</h3>
+<p>Es ist Zeit für die Seitenwände! Lege sie erst mal an und entscheide dann wie du sie schneidest. Hier gibt es nämlich verschiedene Wege. Hier wären einige Ideen, falls dir nichts einfällt:<br />
+(4 mögliche Wege in 4 Farben)
+<img alt="loading error." src="../assets/pic_guide_19.png" /></p>
+<h3 id="schritt-5_1">Schritt 5:</h3>
+<p>Hast du dich entschieden? Gut, dann weißt du warscheinlich schon was kommt: festschrauben.
+<img alt="loading error." src="../assets/pic_guide_20.png" /></p>
+<h3 id="schritt-6_1">Schritt 6:</h3>
+<p>Nun eine etwas andere Verkleidung: das LED Schild. Hier ist auch wieder deine Kreativität gefragt. Du kannst es natürlich leer lassen oder du überlegst dir ein Design. Hast du eins, kannst du dir z.B. einen Sticker davon anfertigen lassen. Ich habe mich hier für ein Negativ eines "Arcade" Schriftzugs entschieden. Dafür habe ich den Schriftzug ausgeschnitten, auf das glas gelegt und über alles mit Sprühfarbe drüber gesprüht. Das wichtigste ist nur, dass du am ende die Rückseite mit grobem Schleifpapier schleifst, um sie milchig und undurchsichtig zu machen, sodass lediglich das licht durch scheint, du aber nicht durch sehen kannst. Meins sieht so aus:
+<img alt="loading error." src="../assets/pic_guide_21.png" />
+(Meine Handykamera mag das Schild nicht xD)</p>
+<h3 id="schritt-7_1">Schritt 7:</h3>
+<p>Und auch hier wieder: Festschrauben. Aber Achtung! das Plexiglas ist empfindlich also langsam und mit wenig Druck bohren und die Schrauben nicht zu fest ziehen.
+<img alt="loading error." src="../assets/pic_guide_22.png" /></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Fußzeile" >
+        
+          
+          <a href="../preparation/" class="md-footer__link md-footer__link--prev" aria-label="Zurück: Vorbereitung">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Zurück
+              </span>
+              <div class="md-ellipsis">
+                Vorbereitung
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../software/" class="md-footer__link md-footer__link--next" aria-label="Weiter: Software">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Weiter
+              </span>
+              <div class="md-ellipsis">
+                Software
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2024 <a href="https://github.com/HazDu">Haz_Du</a> und <a href="https://gnmyt.dev">GNM</a>
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.footer"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "In Zwischenablage kopiert", "clipboard.copy": "In Zwischenablage kopieren", "search.result.more.one": "1 weiteres Suchergebnis auf dieser Seite", "search.result.more.other": "# weitere Suchergebnisse auf dieser Seite", "search.result.none": "Keine Suchergebnisse", "search.result.one": "1 Suchergebnis", "search.result.other": "# Suchergebnisse", "search.result.placeholder": "Suchbegriff eingeben", "search.result.term.missing": "Es fehlt", "select.version": "Version ausw\u00e4hlen"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.af256bd8.min.js"></script>
+      
+    
+  </body>
+</html>
