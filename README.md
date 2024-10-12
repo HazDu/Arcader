@@ -18,6 +18,8 @@ To get started with Arcader, please check out our [documentation](https://arcade
 - `DISABLE_COIN_SLOT` - Disable coin slot support during development. Default is `false`
 - `COIN_ACCEPTOR_PATH` - Path to the coin acceptor device. Default is `/dev/ttyACM0`
 - `JOYSTICK_INDEX` - ID of the primary joystick. Default is `0`
+- `ADMIN_UI_PORT` - Port of the admin UI. Default is `5328`
+- `STEAMGRIDDB_API_KEY` - API key for SteamGridDB. Default is `null`
 
 ## License
 
