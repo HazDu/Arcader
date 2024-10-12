@@ -1,91 +1,16 @@
 import "./styles.sass";
 import {IconButton} from "@/common/components/IconButton/IconButton";
 import BackImage from "@/common/assets/img/back.png";
-import {useEffect, useState} from "react";
+import {useContext, useEffect, useState} from "react";
 import {useNavigate} from "react-router-dom";
 import Keyboard from "@/pages/Search/elements/Keyboard";
 import GridView from "@/pages/GameSelect/views/GridView";
-
-const demoData = [
-    {
-        id: 1,
-        title: "Super Mario 64",
-        thumbnail: "/assets/demo/mario64.jpg"
-    },
-    {
-        id: 2,
-        title: "Super Mario Kart",
-        thumbnail: "/assets/demo/mariokart.jpg"
-    },
-    {
-        id: 3,
-        title: "Super Smash Bros Melee",
-        thumbnail: "/assets/demo/melee.jpg"
-    },
-    {
-        id: 4,
-        title: "Street Fighter II Turbo",
-        thumbnail: "/assets/demo/streetfighter.jpg"
-    },
-    {
-        id: 5,
-        title: "Donkey Kong Country",
-        thumbnail: "/assets/demo/donkeykong.jpg"
-    },
-    {
-        id: 11,
-        title: "Super Mario 64",
-        thumbnail: "/assets/demo/mario64.jpg"
-    },
-    {
-        id: 21,
-        title: "Super Mario Kart",
-        thumbnail: "/assets/demo/mariokart.jpg"
-    },
-    {
-        id: 31,
-        title: "Super Smash Bros Melee",
-        thumbnail: "/assets/demo/melee.jpg"
-    },
-    {
-        id: 41,
-        title: "Street Fighter II Turbo",
-        thumbnail: "/assets/demo/streetfighter.jpg"
-    },
-    {
-        id: 51,
-        title: "Donkey Kong Country",
-        thumbnail: "/assets/demo/donkeykong.jpg"
-    },
-    {
-        id: 12,
-        title: "Super Mario 64",
-        thumbnail: "/assets/demo/mario64.jpg"
-    },
-    {
-        id: 22,
-        title: "Super Mario Kart",
-        thumbnail: "/assets/demo/mariokart.jpg"
-    },
-    {
-        id: 32,
-        title: "Super Smash Bros Melee",
-        thumbnail: "/assets/demo/melee.jpg"
-    },
-    {
-        id: 42,
-        title: "Street Fighter II Turbo",
-        thumbnail: "/assets/demo/streetfighter.jpg"
-    },
-    {
-        id: 52,
-        title: "Donkey Kong Country",
-        thumbnail: "/assets/demo/donkeykong.jpg"
-    }
-]
+import {GameContext} from "@/common/contexts/GameContext";
 
 export const Search = () => {
     const navigate = useNavigate();
+
+    const {games} = useContext(GameContext);
 
     const [search, setSearch] = useState("");
     const [underscore, setUnderscore] = useState("_");
@@ -123,8 +48,8 @@ export const Search = () => {
     }, [underscore]);
 
     const getGamesBySearch = (search) => {
-        if (!search) return demoData;
-        return demoData.filter(game => game.title.toLowerCase().includes(search.toLowerCase()));
+        if (!search) return games;
+        return games.filter(game => game.title.toLowerCase().includes(search.toLowerCase()));
     }
 
     return (
