@@ -30,6 +30,7 @@ jobs:
           node-version: 18
       - name: Create packages
         run: |
+          npm install
           npm run build
       - uses: morph027/apt-repo-action@v2
         id: create-apt-repo
