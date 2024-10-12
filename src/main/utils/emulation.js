@@ -14,8 +14,12 @@ const isRunning = (pid) => {
 }
 
 const cores = [
-    {core: "snes9x_libretro.so", extensions: ["sfc", "smc"]},
+    {core: "snes9x_libretro.so", extensions: ["sfc", "smc"], name: "Super Nintendo"},
 ]
+
+export const findCoreByExtension = (ext) => {
+    return cores.find(core => core.extensions.includes(ext));
+}
 
 const isWayland = () => {
     return process.env.XDG_SESSION_TYPE === "wayland";
@@ -29,6 +33,8 @@ export const startEmulator = (webContents, core, gameFile) => {
         console.error("Emulator already running");
         return;
     }
+
+    console.log("Spawning emulator with command: " + START_CMD);
 
     const proc = cp.spawn([`LD_PRELOAD=${LD_PRELOAD}`, START_CMD].join(" "), {
         shell: true
