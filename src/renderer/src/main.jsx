@@ -8,6 +8,7 @@ import Home from "@/pages/Home";
 import App from "@/common/layouts/App";
 import GameSelect from "@/pages/GameSelect";
 import Search from "@/pages/Search";
+import InGame from "@/pages/InGame";
 
 const router = createBrowserRouter([
     {
@@ -16,6 +17,7 @@ const router = createBrowserRouter([
         children: [
             {path: "/", element: <Loading />},
             {path: "/coin", element: <CoinInsert />},
+            {path: "/ingame", element: <InGame />},
             {path: "/error", element: <h2>ERROR: Coin detector not connected</h2>},
             {path: "/home", element: <Home />},
             {path: "/game-select", element: <GameSelect />},
