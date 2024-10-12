@@ -1,9 +1,10 @@
-const path = require("node:path");
-const {app, BrowserWindow, ipcMain} = require("electron");
-const {SerialPort} = require("serialport");
-const {ReadlineParser} = require("@serialport/parser-readline");
-const joystick = require("./utils/joystick");
-const emulation = require("./utils/emulation");
+import {join} from "path";
+import {app, BrowserWindow, ipcMain} from "electron";
+import {electronApp, optimizer, is} from "@electron-toolkit/utils";
+import {SerialPort} from "serialport";
+import {ReadlineParser} from "@serialport/parser-readline";
+import {onAxis, onKeyDown} from "./utils/joystick";
+import {startById} from"./utils/emulation";
 
 let mainWindow;
 
@@ -13,14 +14,18 @@ let parser;
 const createWindow = () => {
     mainWindow = new BrowserWindow({
         webPreferences: {
-            preload: path.join(__dirname, "preload.js")
+            preload: join(__dirname, '../preload/index.js'),
         }
     });
 
-    if (process.env.VITE_DEV_SERVER_URL) {
-        mainWindow.loadURL(process.env.VITE_DEV_SERVER_URL);
+    if (is.dev) {
+        mainWindow.webContents.openDevTools();
+    }
+
+    if (is.dev && process.env['ELECTRON_RENDERER_URL']) {
+        mainWindow.loadURL(process.env['ELECTRON_RENDERER_URL']);
     } else {
-        mainWindow.loadFile(path.join(__dirname, "../", "index.html"));
+        mainWindow.loadFile(join(__dirname, '../renderer/index.html'));
     }
 
     mainWindow.show();
@@ -29,23 +34,34 @@ const createWindow = () => {
 }
 
 app.whenReady().then(() => {
-    createWindow();
+    electronApp.setAppUserModelId('de.gnmyt');
 
-    joystick.onKeyDown((number) => {
+    app.on('browser-window-created', (_, window) => optimizer.watchWindowShortcuts(window));
+
+    onKeyDown((number) => {
         mainWindow.webContents.send("joystick-button", number);
     });
 
-    joystick.onAxis((axis) => {
+    onAxis((axis) => {
         mainWindow.webContents.send("joystick-axis", axis);
     });
 
     ipcMain.on("load-game", (event, gameId) => {
-        emulation.startById(gameId);
+        startById(gameId);
     });
 
     ipcMain.on("connect-acceptor", () => {
+        if (process.env['DISABLE_COIN_SLOT']) {
+            mainWindow.webContents.send("acceptor-connected", true);
+            setTimeout(() => {
+                mainWindow.webContents.send("coin-detected", true);
+            }, 2000);
+            return;
+        }
         loadConnector();
     });
+
+    createWindow();
 });
 
 const loadConnector = () => {
