@@ -10,7 +10,7 @@ const AXIS_SPAM_DELAY = 1000;
 const AXIS_SPAM_INTERVAL = 100;
 
 const enableJoystick = () => {
-    let joystickInstance = new Joystick(0);
+    let joystickInstance = new Joystick(parseInt(process.env['JOYSTICK_INDEX'] || 0));
 
     joystickInstance.on("button", (data) => {
         if (data.value === 1) {
