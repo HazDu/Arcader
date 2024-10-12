@@ -6,6 +6,7 @@ import {ReadlineParser} from "@serialport/parser-readline";
 import {onAxis, onKeyDown} from "./utils/joystick";
 import {startById} from"./utils/emulation";
 import {startServer} from "./api";
+import {retrieveGames} from "./utils/loader";
 
 let mainWindow;
 
@@ -52,6 +53,11 @@ app.whenReady().then(() => {
     });
 
     ipcMain.on("connect-acceptor", () => {
+        mainWindow.webContents.send("games-updated", retrieveGames());
+        setInterval(() => {
+            mainWindow.webContents.send("games-updated", retrieveGames());
+        }, 10000);
+
         if (process.env['DISABLE_COIN_SLOT']) {
             mainWindow.webContents.send("acceptor-connected", true);
             setTimeout(() => {
