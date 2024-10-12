@@ -1,6 +1,6 @@
-const cp = require("child_process");
-const fs = require("fs");
-const terminate = require("terminate");
+import cp from "child_process";
+import fs from "fs";
+import terminate from "terminate";
 
 let currentPid = null;
 
@@ -21,7 +21,7 @@ const isWayland = () => {
     return process.env.XDG_SESSION_TYPE === "wayland";
 }
 
-module.exports.startEmulator = (core, gameFile) => {
+export const startEmulator = (core, gameFile) => {
     const LD_PRELOAD = isWayland() ? "/usr/lib/x86_64-linux-gnu/libwayland-client.so.0" : "";
     const START_CMD = "./data/retro.AppImage -f -L ./data/cores/" + core + " " + gameFile;
 
@@ -37,7 +37,7 @@ module.exports.startEmulator = (core, gameFile) => {
     currentPid = proc.pid;
 }
 
-module.exports.start = (gameFile) => {
+export const start = (gameFile) => {
     const ext = gameFile.split(".").pop();
     const core = cores.find(core => core.extensions.includes(ext));
 
@@ -46,10 +46,10 @@ module.exports.start = (gameFile) => {
         return;
     }
 
-    module.exports.startEmulator(core.core, gameFile);
+    startEmulator(core.core, gameFile);
 }
 
-module.exports.startById = (gameId) => {
+export const startById = (gameId) => {
     const gameFile = fs.readdirSync("./data/roms").find(file => file.startsWith(gameId));
 
     if (!gameFile) {
@@ -57,10 +57,10 @@ module.exports.startById = (gameId) => {
         return;
     }
 
-    module.exports.start(`./data/roms/${gameFile}`);
+    start(`./data/roms/${gameFile}`);
 }
 
-module.exports.stop = () => {
+export const stop = () => {
     if (currentPid && isRunning(currentPid)) {
         terminate(currentPid, () => {
             console.log("Emulator closed");
