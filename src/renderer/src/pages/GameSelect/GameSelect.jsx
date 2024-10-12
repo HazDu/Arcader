@@ -72,10 +72,16 @@ export const GameSelect = () => {
             }
         }
 
+        const onGameLoaded = () => {
+            navigate("/ingame");
+        }
+
+        window.electron.receive("game-loaded", onGameLoaded);
         window.electron.receive("joystick-axis", onJoystick);
         window.electron.receive("joystick-button", onClick);
 
         return () => {
+            window.electron.endReceiveAll("game-loaded");
             window.electron.endReceiveAll("joystick-button");
             if (currentLevel !== 3) {
                 window.electron.endReceiveAll("joystick-axis");
