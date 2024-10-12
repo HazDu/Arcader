@@ -10,7 +10,6 @@ import CarouselView from "@/pages/GameSelect/views/CarouselView";
 import GridView from "@/pages/GameSelect/views/GridView";
 import {useNavigate} from "react-router-dom";
 
-
 const demoData = [
     {
         id: 1,
@@ -18,74 +17,14 @@ const demoData = [
         thumbnail: "/assets/demo/mario64.jpg"
     },
     {
-        id: 2,
-        title: "Super Mario Kart",
+        id: 5252,
+        title: "Super Mario Kart SNES",
         thumbnail: "/assets/demo/mariokart.jpg"
     },
     {
         id: 3,
         title: "Super Smash Bros Melee",
         thumbnail: "/assets/demo/melee.jpg"
-    },
-    {
-        id: 4,
-        title: "Street Fighter II Turbo",
-        thumbnail: "/assets/demo/streetfighter.jpg"
-    },
-    {
-        id: 5,
-        title: "Donkey Kong Country",
-        thumbnail: "/assets/demo/donkeykong.jpg"
-    },
-    {
-        id: 11,
-        title: "Super Mario 64",
-        thumbnail: "/assets/demo/mario64.jpg"
-    },
-    {
-        id: 21,
-        title: "Super Mario Kart",
-        thumbnail: "/assets/demo/mariokart.jpg"
-    },
-    {
-        id: 31,
-        title: "Super Smash Bros Melee",
-        thumbnail: "/assets/demo/melee.jpg"
-    },
-    {
-        id: 41,
-        title: "Street Fighter II Turbo",
-        thumbnail: "/assets/demo/streetfighter.jpg"
-    },
-    {
-        id: 51,
-        title: "Donkey Kong Country",
-        thumbnail: "/assets/demo/donkeykong.jpg"
-    },
-    {
-        id: 12,
-        title: "Super Mario 64",
-        thumbnail: "/assets/demo/mario64.jpg"
-    },
-    {
-        id: 22,
-        title: "Super Mario Kart",
-        thumbnail: "/assets/demo/mariokart.jpg"
-    },
-    {
-        id: 32,
-        title: "Super Smash Bros Melee",
-        thumbnail: "/assets/demo/melee.jpg"
-    },
-    {
-        id: 42,
-        title: "Street Fighter II Turbo",
-        thumbnail: "/assets/demo/streetfighter.jpg"
-    },
-    {
-        id: 52,
-        title: "Donkey Kong Country",
-        thumbnail: "/assets/demo/donkeykong.jpg"
     }
 ]
 
@@ -98,8 +37,6 @@ export const GameSelect = () => {
 
     useEffect(() => {
         const onClick = (event, button) => {
-            if (button !== 0) return;
-
             if (currentLevel === 0) navigate("/home");
             if (currentLevel === 1) navigate("/search");
 
