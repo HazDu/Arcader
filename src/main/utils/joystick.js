@@ -55,9 +55,6 @@ const enableKeyboardControls = () => {
         globalShortcut.register('Up', () => handleKeyPress("up"));
         globalShortcut.register('Right', () => handleKeyPress("right"));
         globalShortcut.register('Down', () => handleKeyPress("down"));
-        globalShortcut.register('Space', () => {
-            if (listeners.keyDown) listeners.keyDown(32);
-        });
         globalShortcut.register('Enter', () => {
             if (listeners.keyDown) listeners.keyDown(32);
         });
