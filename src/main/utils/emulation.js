@@ -21,7 +21,7 @@ const isWayland = () => {
     return process.env.XDG_SESSION_TYPE === "wayland";
 }
 
-export const startEmulator = (core, gameFile) => {
+export const startEmulator = (webContents, core, gameFile) => {
     const LD_PRELOAD = isWayland() ? "/usr/lib/x86_64-linux-gnu/libwayland-client.so.0" : "";
     const START_CMD = "./data/retro.AppImage -f -L ./data/cores/" + core + " " + gameFile;
 
@@ -34,10 +34,19 @@ export const startEmulator = (core, gameFile) => {
         shell: true
     });
 
+    proc.stdout.on("data", (data) => console.log(data.toString()));
+    proc.stderr.on("data", (data) => console.error(data.toString()));
+
+    proc.on("close", (code) => {
+        console.log(`Emulator exited with code ${code}`);
+
+        stop(webContents);
+    });
+
     currentPid = proc.pid;
 }
 
-export const start = (gameFile) => {
+export const start = (webContents, gameFile) => {
     const ext = gameFile.split(".").pop();
     const core = cores.find(core => core.extensions.includes(ext));
 
@@ -46,10 +55,12 @@ export const start = (gameFile) => {
         return;
     }
 
-    startEmulator(core.core, gameFile);
+    webContents.send("game-loaded", gameFile);
+
+    startEmulator(webContents, core.core, gameFile);
 }
 
-export const startById = (gameId) => {
+export const startById = (webContents, gameId) => {
     const gameFile = fs.readdirSync("./data/roms").find(file => file.startsWith(gameId));
 
     if (!gameFile) {
@@ -57,13 +68,19 @@ export const startById = (gameId) => {
         return;
     }
 
-    start(`./data/roms/${gameFile}`);
+    start(webContents,`./data/roms/${gameFile}`);
 }
 
-export const stop = () => {
+export const stop = (webContents) => {
     if (currentPid && isRunning(currentPid)) {
         terminate(currentPid, () => {
             console.log("Emulator closed");
         });
     }
+
+    currentPid = null;
+
+    webContents.send("game-stopped", process.env['DISABLE_COIN_SLOT']);
+
+    return true;
 }
