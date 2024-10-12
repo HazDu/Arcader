@@ -20,7 +20,7 @@ void loop() {
   if (coinSerial.available() > 0) {
     char received = coinSerial.read();
 
-    if ((uint8_t)received == 255) return;
+    if ((uint8_t)received >= 100) return;
 
     if (!coinDetected) {
       Serial.println(100073000);
