@@ -1,6 +1,7 @@
 {
   "name": "arcader",
   "description": "A simple UI for DIY arcade machines with coin slots",
+  "version": "1.0.0",
   "main": "./out/main/index.js",
   "author": "Mathias Wagner",
   "homepage": "https://dualboot.gnmyt.dev/",
