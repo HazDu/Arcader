@@ -5,6 +5,7 @@ import {SerialPort} from "serialport";
 import {ReadlineParser} from "@serialport/parser-readline";
 import {onAxis, onKeyDown} from "./utils/joystick";
 import {startById} from"./utils/emulation";
+import {startServer} from "./api";
 
 let mainWindow;
 
@@ -47,7 +48,7 @@ app.whenReady().then(() => {
     });
 
     ipcMain.on("load-game", (event, gameId) => {
-        startById(gameId);
+        startById(mainWindow.webContents, gameId);
     });
 
     ipcMain.on("connect-acceptor", () => {
@@ -62,10 +63,12 @@ app.whenReady().then(() => {
     });
 
     createWindow();
+
+    startServer();
 });
 
 const loadConnector = () => {
-    port = new SerialPort({path: "/dev/ttyACM0", baudRate: 9600});
+    port = new SerialPort({path: process["COIN_ACCEPTOR_PATH"] || "/dev/ttyACM0", baudRate: 9600});
     parser = port.pipe(new ReadlineParser());
     port.on("open", () => {
         console.log("Coin acceptor connected");
