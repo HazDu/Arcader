@@ -37,7 +37,7 @@ export const CarouselView = ({currentLevel, setCurrentLevel, data}) => {
                 window.electron.endReceiveAll("joystick-axis");
             }
         }
-    }, [currentLevel]);
+    }, [currentLevel, currentGame]);
 
     useEffect(() => {
         getCurrentGames().then(setCurrentGames);
