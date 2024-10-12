@@ -73,6 +73,14 @@ export const retrieveGames = () => {
     });
 }
 
+export const getNextFreeId = () => {
+    const games = retrieveGames();
+    const ids = games.map(game => parseInt(game.id));
+    const maxId = Math.max(...ids);
+
+    return maxId + 1;
+}
+
 export const cacheGameThumbnails = async () => {
     const games = retrieveGames();
 
