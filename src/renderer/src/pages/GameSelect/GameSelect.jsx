@@ -5,30 +5,15 @@ import SearchImage from "@/common/assets/img/search.png";
 import GridViewImage from "@/common/assets/img/grid.png";
 import CarouselImage from "@/common/assets/img/carousel.png";
 import Button from "@/common/components/Button";
-import {useEffect, useState} from "react";
+import {useContext, useEffect, useState} from "react";
 import CarouselView from "@/pages/GameSelect/views/CarouselView";
 import GridView from "@/pages/GameSelect/views/GridView";
 import {useNavigate} from "react-router-dom";
-
-const demoData = [
-    {
-        id: 1,
-        title: "Super Mario 64",
-        thumbnail: "/assets/demo/mario64.jpg"
-    },
-    {
-        id: 5252,
-        title: "Super Mario Kart SNES",
-        thumbnail: "/assets/demo/mariokart.jpg"
-    },
-    {
-        id: 3,
-        title: "Super Smash Bros Melee",
-        thumbnail: "/assets/demo/melee.jpg"
-    }
-]
+import {GameContext} from "@/common/contexts/GameContext";
 
 export const GameSelect = () => {
+
+    const {games} = useContext(GameContext);
 
     const navigate = useNavigate();
 
@@ -36,7 +21,7 @@ export const GameSelect = () => {
     const [currentView, setCurrentView] = useState("carousel");
 
     useEffect(() => {
-        const onClick = (event, button) => {
+        const onClick = () => {
             if (currentLevel === 0) navigate("/home");
             if (currentLevel === 1) navigate("/search");
 
@@ -89,6 +74,8 @@ export const GameSelect = () => {
         }
     }, [currentLevel]);
 
+    if (!games) return null;
+
     return (
         <div className="game-select-page">
             <div className="top-area">
@@ -101,8 +88,8 @@ export const GameSelect = () => {
                     <IconButton image={currentView === "carousel" ? GridViewImage : CarouselImage} selected={currentLevel === 2}/>
                 </div>
 
-                {currentView === "carousel" && <CarouselView currentLevel={currentLevel} setCurrentLevel={setCurrentLevel} data={demoData}/>}
-                {currentView === "grid" && <GridView currentLevel={currentLevel} setCurrentLevel={setCurrentLevel} data={demoData}/>}
+                {currentView === "carousel" && <CarouselView currentLevel={currentLevel} setCurrentLevel={setCurrentLevel} data={games}/>}
+                {currentView === "grid" && <GridView currentLevel={currentLevel} setCurrentLevel={setCurrentLevel} data={games}/>}
             </div>
         </div>
     );
