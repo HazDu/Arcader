@@ -16,7 +16,6 @@ nsis:
   createDesktopShortcut: always
 linux:
   target:
-    - AppImage
     - deb
   maintainer: Mathias Wagner
   category: Utility
