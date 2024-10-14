@@ -53,7 +53,7 @@ Um sicher zu gehen ob der Abstand wirklich stimmt, kannst du zum Prüfen deine 7
 ![loading error.](./assets/pic_guide_9.5.png)
 
 ### Schritt 10:
-Bisher sind die beiden Teile ja lediglich durch die zwei Latten hinten verbunden. Das änderst du jetzt! Dafür setzt du zwei Latte n wie gezeigt ein. Und für die Abschrägungen nicht vergessen, was du in [Tipp Schritt 4](https://arcader.hazdu.de/hardware/#tipp-schritt-4) gelernt hast.
+Bisher sind die beiden Teile ja lediglich durch die zwei Latten hinten verbunden. Das änderst du jetzt! Dafür setzt du zwei Latten wie gezeigt ein. Und für die Abschrägungen nicht vergessen, was du in [Tipp Schritt 4](https://arcader.hazdu.de/hardware/#tipp-schritt-4) gelernt hast.
 ![loading error.](./assets/pic_guide_10.png)
 
 ### Schritt 11:
