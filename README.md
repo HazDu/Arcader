@@ -7,7 +7,7 @@
 
 ## 🤔 What is Arcader?
 
-A simple UI for DIY arcade machines with coin slots
+A simple UI for DIY arcade machines with or without coin slots
 
 ## 🚀 Getting Started
 
