@@ -46,7 +46,7 @@ Um das obere Gebälge zu vervollständigen, kommt hinten noch eine Querstrebe hi
 ![loading error.](./assets/pic_guide_8.png)
 
 ### Schritt 9:
-Vielleicht siehst du schon wo später das Button Panel hin kommt. Dieses ist am besten licht angeschrägt. Um dies zu erreichen, mach dir das Leben leicht, indem du einfach zwei Latten übereinander befestigst, so wie im Bild zu sehen. Die rote Markierung zeigt dir, welchen Abstand du dabei beachten musst. Aber Obacht! Auch hier gibt es wieder einen [Tipp](https://arcader.hazdu.de/hardware/#tipp-schritt-9).
+Vielleicht siehst du schon wo später das Button Panel hin kommt. Dieses ist am besten leicht angeschrägt. Um dies zu erreichen, mach dir das Leben leicht, indem du einfach zwei Latten übereinander befestigst, so wie im Bild zu sehen. Die rote Markierung zeigt dir, welchen Abstand du dabei beachten musst. Aber Obacht! Auch hier gibt es wieder einen [Tipp](https://arcader.hazdu.de/hardware/#tipp-schritt-9).
 ![loading error.](./assets/pic_guide_9.png)
 ### Tipp Schritt 9:
 Um sicher zu gehen ob der Abstand wirklich stimmt, kannst du zum Prüfen deine 700mm x 200mm Platte drüber legen und schauen ob sie an allen Ecken bündig aufliegt.
@@ -91,7 +91,7 @@ Jetzt wirds leider doch noch mal bissel nerfig. Du musst jetzt nämlich ein mal 
 ![loading error.](./assets/pic_guide_17.png)
 
 ### Schritt 3:
-Die nächste Platte(700mm x 300mm) geht jetzt aber wieder ganz chillig. Die bringst du jetzt wie gezeigt an:
+Die nächste Platte (700mm x 300mm) geht jetzt aber wieder ganz chillig. Die bringst du jetzt wie gezeigt an:
 ![loading error.](./assets/pic_guide_18.png)
 
 ### Schritt 4:
