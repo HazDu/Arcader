@@ -10,6 +10,13 @@ export default defineConfig({
         plugins: [externalizeDepsPlugin()]
     },
     renderer: {
+        css: {
+            preprocessorOptions: {
+                sass: {
+                    api: 'modern-compiler',
+                },
+            },
+        },
         resolve: {
             alias: {
                 "@": resolve("src/renderer/src")
