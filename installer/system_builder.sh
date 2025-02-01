@@ -122,8 +122,33 @@ build_installer_system() {
 
 [ -f /utils.sh ] && source /utils.sh
 
-mkdir -p /cdrom
-mount -t iso9660 /dev/sr0 /cdrom || mount -t iso9660 /dev/sda /cdrom || mount -t iso9660 /dev/sdb /cdrom
+setup_install_media() {
+    if [ -f "/usr/lib/live/mount/medium/ARCADER" ]; then
+        ln -sf /usr/lib/live/mount/medium /cdrom
+        return 0
+    fi
+
+    local install_media=""
+    local possible_devices=($(lsblk -lnp -o NAME,TYPE | grep -E "disk|part" | cut -d' ' -f1))
+
+    mkdir -p /cdrom
+
+    for device in "${possible_devices[@]}"; do
+        if mount -t iso9660 "$device" /cdrom 2>/dev/null; then
+            if [ -f "/cdrom/ARCADER" ]; then
+                return 0
+            fi
+            umount /cdrom
+        fi
+    done
+
+    return 1
+}
+
+if ! setup_install_media; then
+    print_error "Could not find installation media!"
+    exit 1
+fi
 
 print_banner
 
@@ -131,7 +156,12 @@ print_status "Welcome to the Arcader Installer!"
 echo
 
 print_status "Available disks:"
-lsblk -d -n -p -o NAME,SIZE,MODEL | grep -E '^/dev/(sd|vd|nvme)' | grep -v "$(mount | grep /cdrom | cut -d' ' -f1)"
+lsblk -d -n -p -o NAME,SIZE,MODEL | grep -E '^/dev/(sd|vd|nvme|hd)' | grep -v "$INSTALL_MEDIA" | \
+    while read disk; do
+        if ! echo "$INSTALL_MEDIA" | grep -q "$(echo $disk | cut -d' ' -f1)"; then
+            echo "$disk"
+        fi
+    done
 
 echo
 read -p "Enter the disk to install to (e.g., /dev/sda): " TARGET_DISK
