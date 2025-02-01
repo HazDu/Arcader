@@ -35,7 +35,29 @@ update-locale LANG=en_US.UTF-8
 
 apt install -y grub-pc grub-pc-bin grub-efi-amd64-bin grub-efi-amd64-signed efibootmgr
 
-apt install -y --no-install-recommends openbox dbus-x11 xorg xinit chromium x11-xserver-utils
+apt install -y --no-install-recommends openbox dbus-x11 xorg xinit chromium x11-xserver-utils \
+    isc-dhcp-client ifupdown net-tools iputils-ping
+
+cat > /etc/network/interfaces << 'NETEOF'
+source /etc/network/interfaces.d/*
+
+auto lo
+iface lo inet loopback
+
+auto eth0
+allow-hotplug eth0
+iface eth0 inet dhcp
+NETEOF
+
+cat > /etc/udev/rules.d/70-persistent-net.rules << 'UDEVEOF'
+SUBSYSTEM=="net", ACTION=="add", DRIVERS=="?*", ATTR{type}=="1", KERNEL=="en*", NAME="eth0"
+SUBSYSTEM=="net", ACTION=="add", DRIVERS=="?*", ATTR{type}=="1", KERNEL=="eth*", NAME="eth0"
+UDEVEOF
+
+systemctl enable networking
+
+apt remove --purge -y live-boot* live-config*
+apt autoremove -y
 
 useradd -m -s /bin/bash user
 echo "user:password" | chpasswd
@@ -167,6 +189,25 @@ fi
 mount --bind /dev /mnt/dev
 mount --bind /proc /mnt/proc
 mount --bind /sys /mnt/sys
+
+print_status "Generating fstab..."
+
+ROOT_UUID=$(blkid -s UUID -o value $(findmnt -n -o SOURCE /mnt))
+
+cat > /mnt/etc/fstab << FSTABEOF
+UUID=${ROOT_UUID}          /               ext4    errors=remount-ro           0       1
+FSTABEOF
+
+if [ -d /sys/firmware/efi ]; then
+    EFI_UUID=$(blkid -s UUID -o value "${TARGET_DISK}1")
+    echo "UUID=${EFI_UUID}  /boot/efi       vfat    umask=0077                   0       1" >> /mnt/etc/fstab
+fi
+
+cat >> /mnt/etc/fstab << FSTABEOF
+tmpfs                      /tmp            tmpfs   defaults,noatime,mode=1777   0       0
+tmpfs                      /var/tmp        tmpfs   defaults,noatime,mode=1777   0       0
+tmpfs                      /var/log        tmpfs   defaults,noatime,mode=0755   0       0
+FSTABEOF
 
 print_status "Installing bootloader..."
 
