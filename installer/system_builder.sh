@@ -35,8 +35,18 @@ update-locale LANG=en_US.UTF-8
 
 apt install -y grub-pc grub-pc-bin grub-efi-amd64-bin grub-efi-amd64-signed efibootmgr
 
-apt install -y --no-install-recommends openbox dbus-x11 xorg xinit chromium x11-xserver-utils \
-    isc-dhcp-client ifupdown net-tools iputils-ping
+apt install -y --no-install-recommends openbox dbus-x11 xorg xinit x11-xserver-utils \
+    isc-dhcp-client ifupdown net-tools iputils-ping wget gnupg2 gnupg sudo
+
+apt update && apt install --reinstall ca-certificates -y
+update-ca-certificates
+
+wget -qO - https://arcader-sources.hazdu.de/gpg.key | apt-key add -
+
+echo "deb https://arcader-sources.hazdu.de/ bookworm main" | tee /etc/apt/sources.list.d/arcader-sources.list > /dev/null
+
+apt update
+apt install -y arcader libasound2
 
 cat > /etc/network/interfaces << 'NETEOF'
 source /etc/network/interfaces.d/*
@@ -62,6 +72,8 @@ apt autoremove -y
 useradd -m -s /bin/bash user
 echo "user:password" | chpasswd
 
+usermod -aG sudo user
+
 mkdir -p /home/user/.config/openbox
 cat > /home/user/.config/openbox/autostart << 'INNEREOF'
 
@@ -69,7 +81,7 @@ xset s off
 xset s noblank
 xset -dpms
 
-chromium --kiosk --incognito --disable-translate --no-first-run --fast --fast-start --disable-infobars --disable-features=TranslateUI --disk-cache-dir=/dev/null https://arcader.hazdu.de &
+DISABLE_COIN_SLOT=true ENABLE_JOYSTICK=false arcader
 INNEREOF
 
 cat > /home/user/.bash_profile << 'INNEREOF'
@@ -156,7 +168,7 @@ print_status "Welcome to the Arcader Installer!"
 echo
 
 print_status "Available disks:"
-lsblk -d -n -p -o NAME,SIZE,MODEL | grep -E '^/dev/(sd|vd|nvme|hd)' | grep -v "$INSTALL_MEDIA" | \
+lsblk -d -n -p -o NAME,SIZE,MODEL | grep -E '^/dev/(sd|vd|nvme|hd)' | \
     while read disk; do
         if ! echo "$INSTALL_MEDIA" | grep -q "$(echo $disk | cut -d' ' -f1)"; then
             echo "$disk"
