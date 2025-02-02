@@ -1,15 +1,16 @@
 import "./styles.sass";
-import {IconButton} from "@/common/components/IconButton/IconButton";
+import { IconButton } from "@/common/components/IconButton/IconButton";
 import BackImage from "@/common/assets/img/back.png";
 import SearchImage from "@/common/assets/img/search.png";
 import GridViewImage from "@/common/assets/img/grid.png";
 import CarouselImage from "@/common/assets/img/carousel.png";
 import Button from "@/common/components/Button";
-import {useContext, useEffect, useState} from "react";
+import { useContext, useEffect, useState } from "react";
 import CarouselView from "@/pages/GameSelect/views/CarouselView";
 import GridView from "@/pages/GameSelect/views/GridView";
-import {useNavigate} from "react-router-dom";
-import {GameContext} from "@/common/contexts/GameContext";
+import { useNavigate } from "react-router-dom";
+import { GameContext } from "@/common/contexts/GameContext";
+import { motion, AnimatePresence } from "framer-motion";
 
 export const GameSelect = () => {
 
@@ -79,18 +80,57 @@ export const GameSelect = () => {
     return (
         <div className="game-select-page">
             <div className="top-area">
-                <IconButton image={BackImage} selected={currentLevel === 0}/>
+                <IconButton image={BackImage} selected={currentLevel === 0} />
             </div>
-            <div className="game-select-area">
+
+            <motion.div
+                className="game-select-area"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3 }}
+            >
                 <div className="game-select-header">
-                    <IconButton image={SearchImage} selected={currentLevel === 1}/>
-                    <Button text="Select Game" padding="1"/>
-                    <IconButton image={currentView === "carousel" ? GridViewImage : CarouselImage} selected={currentLevel === 2}/>
+                    <IconButton image={SearchImage} selected={currentLevel === 1} />
+                    <Button text="Select Game" padding="1" />
+                    <IconButton
+                        image={currentView === "carousel" ? GridViewImage : CarouselImage}
+                        selected={currentLevel === 2}
+                    />
                 </div>
 
-                {currentView === "carousel" && <CarouselView currentLevel={currentLevel} setCurrentLevel={setCurrentLevel} data={games}/>}
-                {currentView === "grid" && <GridView currentLevel={currentLevel} setCurrentLevel={setCurrentLevel} data={games}/>}
-            </div>
+                <AnimatePresence mode="wait">
+                    {currentView === "carousel" && (
+                        <motion.div
+                            key="carousel"
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            className="view-container"
+                        >
+                            <CarouselView
+                                currentLevel={currentLevel}
+                                setCurrentLevel={setCurrentLevel}
+                                data={games}
+                            />
+                        </motion.div>
+                    )}
+                    {currentView === "grid" && (
+                        <motion.div
+                            key="grid"
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            className="view-container"
+                        >
+                            <GridView
+                                currentLevel={currentLevel}
+                                setCurrentLevel={setCurrentLevel}
+                                data={games}
+                            />
+                        </motion.div>
+                    )}
+                </AnimatePresence>
+            </motion.div>
         </div>
     );
-}
+};
