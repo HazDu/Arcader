@@ -1,26 +1,43 @@
-.game-select-page
+.carousel-container
+  width: 100%
+  height: 100%
+  display: flex
+  flex-direction: column
+  justify-content: center
+  align-items: center
+  position: relative
+  gap: 5rem
+
   .game-select-ui
     display: flex
     align-items: center
+    justify-content: center
     gap: 5rem
-    margin-top: 10rem
+    width: 90vw
+    position: relative
+    margin: 0 auto
 
     .game-select-carousel
       display: flex
       align-items: center
-      gap: 2rem
+      justify-content: center
+      position: relative
+      width: 100rem
+      height: 40rem
+      margin: 0 auto
 
-      img
-        border-radius: 1rem
+      .carousel-item
+        position: absolute
+        left: 50%
+        transform-origin: center center
 
-      .previous-game
-        height: 20rem
-
-      .current-game
-        height: 30rem
-
-      .next-game
-        height: 20rem
+        img
+          border-radius: 1rem
+          height: 35rem
+          transform: translateX(-50%)
+          transition: filter 0.3s ease
+          pointer-events: none
+          user-select: none
 
   .current-game-name
     font-size: 3rem
