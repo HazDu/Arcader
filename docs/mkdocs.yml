@@ -1,6 +1,6 @@
 site_name: Arcader
 site_url: https://arcader.hazdu.de
-copyright: Copyright &copy; 2024 <a href="https://hazdu.de">Haz_Du</a> und <a href="https://gnmyt.dev">GNM</a>
+copyright: Copyright &copy; 2024 <a href="https://hazdu.de">Haz_Du</a> und <a href="https://gnm.dev">GNM</a>
 repo_url: https://github.com/HazDu/Arcader
 edit_uri: https://github.com/HazDu/Arcader/edit/main/docs
 theme:
