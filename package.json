@@ -23,7 +23,7 @@
     "colorthief": "^2.6.0",
     "electron-updater": "^6.3.9",
     "express": "^4.21.2",
-    "framer-motion": "^12.1.0",
+    "framer-motion": "^12.3.1",
     "joystick": "^0.1.2",
     "plist": "^3.1.0",
     "react-router-dom": "^7.1.5",
