@@ -19,7 +19,7 @@
     "@fortawesome/react-fontawesome": "^0.2.2",
     "@serialport/parser-readline": "^13.0.0",
     "adm-zip": "^0.5.16",
-    "axios": "^1.8.1",
+    "axios": "^1.8.2",
     "colorthief": "^2.6.0",
     "electron-updater": "^6.3.9",
     "express": "^4.21.2",
