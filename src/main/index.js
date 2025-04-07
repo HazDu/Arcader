@@ -53,9 +53,9 @@ app.whenReady().then(() => {
     });
 
     ipcMain.on("connect-acceptor", () => {
-        mainWindow.webContents.send("games-updated", retrieveGames());
+        mainWindow.webContents.send("games-updated", retrieveGames(true));
         setInterval(() => {
-            mainWindow.webContents.send("games-updated", retrieveGames());
+            mainWindow.webContents.send("games-updated", retrieveGames(true));
         }, 10000);
 
         if (process.env['DISABLE_COIN_SLOT']) {

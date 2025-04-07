@@ -1,15 +1,17 @@
 import {Router} from "express";
 import fs from "fs";
+import path from "path";
 
 const imageRouter = Router();
 
 const retrieveImage = (key) => {
-    const path = process.cwd() + `/data/cache/${key}`;
+    const imagePath = path.join(process.cwd(), 'data', 'cache', key);
     const extensions = ["png", "jpg", "jpeg"];
 
     for (const extension of extensions) {
-        if (fs.existsSync(`${path}.${extension}`)) {
-            return `${path}.${extension}`;
+        const fullPath = `${imagePath}.${extension}`;
+        if (fs.existsSync(fullPath)) {
+            return fullPath;
         }
     }
 
@@ -17,17 +19,17 @@ const retrieveImage = (key) => {
 }
 
 const loadImage = (key, res) => {
-    const path = retrieveImage(key);
+    const imagePath = retrieveImage(key);
 
-    if (path) {
-        res.sendFile(path);
+    if (imagePath) {
+        res.sendFile(imagePath);
+    } else {
+        res.status(404).send('Image not found');
     }
 }
 
-imageRouter.get("/:file{.:ext}", (req, res) => {
-    const url = req.url;
-    const key = url.substring(1);
-
+imageRouter.get("/:file", (req, res) => {
+    const key = req.params.file;
     loadImage(key, res);
 });
 
