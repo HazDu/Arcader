@@ -6,7 +6,7 @@ import {ReadlineParser} from "@serialport/parser-readline";
 import {onAxis, onKeyDown} from "./utils/joystick";
 import {startById} from"./utils/emulation";
 import {startServer} from "./api";
-import {retrieveGames} from "./utils/loader";
+import {cacheMissingThumbnails, retrieveGames} from "./utils/loader";
 
 let mainWindow;
 
@@ -71,6 +71,8 @@ app.whenReady().then(() => {
     createWindow();
 
     startServer();
+
+    cacheMissingThumbnails();
 });
 
 const loadConnector = () => {
