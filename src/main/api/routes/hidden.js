@@ -1,10 +1,10 @@
 import { Router } from 'express';
 import { 
-    loadHiddenGames, 
+    loadShownGames, 
     createList, 
     deleteList, 
     setActiveList, 
-    toggleGameHidden,
+    toggleGameShown,
     getVisibleGames
 } from '../../utils/hiddenGames';
 import { retrieveGames } from '../../utils/loader';
@@ -13,7 +13,7 @@ const hiddenRouter = Router();
 
 hiddenRouter.get('/', (req, res) => {
     try {
-        const data = loadHiddenGames();
+        const data = loadShownGames();
         const allGames = retrieveGames(false);
         res.json({
             ...data,
@@ -64,7 +64,7 @@ hiddenRouter.put('/active', (req, res) => {
 hiddenRouter.post('/toggle/:listName/:gameId', (req, res) => {
     try {
         const { listName, gameId } = req.params;
-        const data = toggleGameHidden(listName, gameId);
+        const data = toggleGameShown(listName, gameId);
         const allGames = retrieveGames(false);
         res.json({
             ...data,

@@ -5,6 +5,7 @@ const HiddenGames = () => {
   const [data, setData] = useState({ lists: {}, activeList: null, allGames: [] });
   const [newListName, setNewListName] = useState('');
   const [selectedList, setSelectedList] = useState(null);
+  const [searchQuery, setSearchQuery] = useState('');
 
   const fetchData = async () => {
     try {
@@ -63,14 +64,18 @@ const HiddenGames = () => {
     }
   };
 
-  const isGameHidden = (gameId) => {
+  const isGameShown = (gameId) => {
     return selectedList && data.lists[selectedList]?.includes(gameId);
   };
+
+  const filteredGames = data.allGames.filter(game => 
+    game.title.toLowerCase().includes(searchQuery.toLowerCase())
+  );
 
   return (
     <div className="hidden-games">
       <div className="section-header">
-        <h2>Hidden Games</h2>
+        <h2>Game Lists</h2>
       </div>
 
       <div className="lists-section">
@@ -85,9 +90,8 @@ const HiddenGames = () => {
                 onChange={(e) => setNewListName(e.target.value)}
                 placeholder="Enter list name..."
               />
-              <button type="submit" className="button create">
-                <span className="button-icon">+</span>
-                Create
+              <button type="submit" className="button-icon create">
+                <i className="fas fa-plus-circle"></i>
               </button>
             </div>
           </form>
@@ -103,31 +107,28 @@ const HiddenGames = () => {
             </div>
 
             <div className="lists">
-              {/* Default list card */}
               <div 
-                className={`list-card default ${selectedList === 'Default' ? 'selected' : ''} ${data.activeList === 'Default' ? 'active' : ''}`}
-                onClick={() => setSelectedList('Default')}
+                className={`list-card default ${selectedList === 'All Games' ? 'selected' : ''} ${data.activeList === 'All Games' ? 'active' : ''}`}
+                onClick={() => setSelectedList('All Games')}
               >
                 <div className="list-info">
-                  <div className="list-title">Default List</div>
-                  <div className="list-subtitle">Shows all games</div>
+                  <div className="list-title">All Games ({data.allGames.length})</div>
                 </div>
                 <div className="list-actions">
                   <button
-                    className={`button-icon ${data.activeList === 'Default' ? 'active' : ''}`}
+                    className={`button-icon checkbox ${data.activeList === 'All Games' ? 'active' : ''}`}
                     onClick={(e) => {
                       e.stopPropagation();
-                      setActiveList('Default');
+                      setActiveList('All Games');
                     }}
                   >
-                    {data.activeList === 'Default' ? '★' : '☆'}
+                    <i className={`fas ${data.activeList === 'All Games' ? 'fa-check-square' : 'fa-square'}`}></i>
                   </button>
                 </div>
               </div>
 
-              {/* Custom lists */}
               {Object.keys(data.lists)
-                .filter(listName => listName !== 'Default')
+                .filter(listName => listName !== 'All Games')
                 .map(listName => (
                 <div 
                   key={listName}
@@ -135,29 +136,28 @@ const HiddenGames = () => {
                   onClick={() => setSelectedList(listName)}
                 >
                   <div className="list-info">
-                    <div className="list-title">{listName}</div>
-                    <div className="list-subtitle">
-                      {data.lists[listName].length} hidden games
-                    </div>
+                    <div className="list-title">{listName} ({data.lists[listName].length})</div>
                   </div>
                   <div className="list-actions">
-                    <button
-                      className={`button-icon ${data.activeList === listName ? 'active' : ''}`}
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        setActiveList(listName === data.activeList ? 'Default' : listName);
-                      }}
-                    >
-                      {data.activeList === listName ? '★' : '☆'}
-                    </button>
                     <button
                       className="button-icon delete"
                       onClick={(e) => {
                         e.stopPropagation();
                         deleteList(listName);
                       }}
+                      title="Delete list"
                     >
-                      ×
+                      <i className="fas fa-trash-alt"></i>
+                    </button>
+                    <button
+                      className={`button-icon checkbox ${data.activeList === listName ? 'active' : ''}`}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setActiveList(listName === data.activeList ? 'All Games' : listName);
+                      }}
+                      title="Set as active list"
+                    >
+                      <i className={`fas ${data.activeList === listName ? 'fa-check-square' : 'fa-square'}`}></i>
                     </button>
                   </div>
                 </div>
@@ -169,28 +169,39 @@ const HiddenGames = () => {
         <div className="games-section">
           {selectedList ? (
             <>
-              <h3>
-                {selectedList === 'Default' ? 'All Games' : `Games in ${selectedList}`}
-                {selectedList === 'Default' && (
-                  <div className="default-note">This list shows all games and cannot be modified</div>
-                )}
-              </h3>
+              <div className="games-header">
+                <h3>
+                  {selectedList === 'All Games' ? 'All Games' : `Games in ${selectedList}`}
+                </h3>
+                <div className="search-box">
+                  <i className="fas fa-search"></i>
+                  <input
+                    type="text"
+                    placeholder="Search games..."
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                  />
+                </div>
+              </div>
+              {selectedList === 'All Games' && (
+                <div className="default-note">This list shows all games and cannot be modified</div>
+              )}
               <div className="games-grid">
-                {data.allGames.map(game => (
+                {filteredGames.map(game => (
                   <div
                     key={game.id}
-                    className={`game-card ${isGameHidden(game.id) ? 'hidden' : ''} ${selectedList === 'Default' ? 'default-list' : ''}`}
-                    onClick={() => selectedList !== 'Default' && toggleGame(game.id)}
+                    className={`game-card ${isGameShown(game.id) ? 'shown' : ''} ${selectedList === 'All Games' ? 'default-list' : ''}`}
+                    onClick={() => selectedList !== 'All Games' && toggleGame(game.id)}
                   >
-                    <img src={game.thumbnail.replace("http://localhost:5328", "")} alt={game.title} className="game-thumbnail" />
                     <div className="game-info">
                       <span className="game-title">{game.title}</span>
-                      {selectedList !== 'Default' && (
+                      {selectedList !== 'All Games' && (
                         <span className="game-status">
-                          {isGameHidden(game.id) ? 'Hidden' : 'Visible'}
+                          {isGameShown(game.id) ? 'Shown' : 'Hidden'}
                         </span>
                       )}
                     </div>
+                    <img src={game.thumbnail.replace("http://localhost:5328", "")} alt={game.title} className="game-thumbnail" />
                   </div>
                 ))}
               </div>
@@ -198,7 +209,7 @@ const HiddenGames = () => {
           ) : (
             <div className="empty-state">
               <div className="icon">📋</div>
-              <p>Select a list to manage hidden games</p>
+              <p>Select a list to manage games</p>
             </div>
           )}
         </div>

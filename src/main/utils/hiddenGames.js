@@ -1,98 +1,89 @@
 import fs from 'fs';
 import path from 'path';
 
-const HIDDEN_GAMES_FILE = path.join(process.cwd(), 'data', 'hidden-games.json');
+const SHOWN_GAMES_FILE = path.join(process.cwd(), 'data', 'shown-games.json');
 const DEFAULT_DATA = {
     lists: {
-        'Default': [] // Default list that shows all games
+        'All Games': []
     },
-    activeList: 'Default'
+    activeList: 'All Games'
 };
 
-// Ensure the hidden games file exists
 const ensureFile = () => {
-    if (!fs.existsSync(HIDDEN_GAMES_FILE)) {
-        fs.writeFileSync(HIDDEN_GAMES_FILE, JSON.stringify(DEFAULT_DATA, null, 2));
+    if (!fs.existsSync(SHOWN_GAMES_FILE)) {
+        fs.writeFileSync(SHOWN_GAMES_FILE, JSON.stringify(DEFAULT_DATA, null, 2));
     } else {
-        // Ensure Default list exists in existing file
-        const data = JSON.parse(fs.readFileSync(HIDDEN_GAMES_FILE, 'utf8'));
-        if (!data.lists.Default) {
-            data.lists.Default = [];
+        const data = JSON.parse(fs.readFileSync(SHOWN_GAMES_FILE, 'utf8'));
+        if (!data.lists['All Games']) {
+            data.lists['All Games'] = [];
             if (!data.activeList) {
-                data.activeList = 'Default';
+                data.activeList = 'All Games';
             }
-            fs.writeFileSync(HIDDEN_GAMES_FILE, JSON.stringify(data, null, 2));
+            fs.writeFileSync(SHOWN_GAMES_FILE, JSON.stringify(data, null, 2));
         }
     }
 };
 
-// Load hidden games data
-export const loadHiddenGames = () => {
+export const loadShownGames = () => {
     ensureFile();
-    const data = fs.readFileSync(HIDDEN_GAMES_FILE, 'utf8');
+    const data = fs.readFileSync(SHOWN_GAMES_FILE, 'utf8');
     return JSON.parse(data);
 };
 
-// Save hidden games data
-const saveHiddenGames = (data) => {
-    // Ensure Default list is never removed
-    if (!data.lists.Default) {
-        data.lists.Default = [];
+const saveShownGames = (data) => {
+    if (!data.lists['All Games']) {
+        data.lists['All Games'] = [];
     }
-    fs.writeFileSync(HIDDEN_GAMES_FILE, JSON.stringify(data, null, 2));
+    fs.writeFileSync(SHOWN_GAMES_FILE, JSON.stringify(data, null, 2));
 };
 
-// Create a new list
 export const createList = (listName) => {
-    if (listName === 'Default') {
-        throw new Error('Cannot create a list named Default');
+    if (listName === 'All Games') {
+        throw new Error('Cannot create a list named All Games');
     }
-    const data = loadHiddenGames();
+    const data = loadShownGames();
     if (data.lists[listName]) {
         throw new Error('List already exists');
     }
     data.lists[listName] = [];
-    saveHiddenGames(data);
+    saveShownGames(data);
     return data;
 };
 
-// Delete a list
 export const deleteList = (listName) => {
-    if (listName === 'Default') {
-        throw new Error('Cannot delete the Default list');
+    if (listName === 'All Games') {
+        throw new Error('Cannot delete the All Games list');
     }
-    const data = loadHiddenGames();
+    const data = loadShownGames();
     if (!data.lists[listName]) {
         throw new Error('List does not exist');
     }
     delete data.lists[listName];
     if (data.activeList === listName) {
-        data.activeList = 'Default';
+        data.activeList = 'All Games';
     }
-    saveHiddenGames(data);
+    saveShownGames(data);
     return data;
 };
 
-// Set active list
 export const setActiveList = (listName) => {
-    const data = loadHiddenGames();
+    const data = loadShownGames();
     if (listName === null) {
-        data.activeList = 'Default';
+        data.activeList = 'All Games';
     } else if (!data.lists[listName]) {
         throw new Error('List does not exist');
     } else {
         data.activeList = listName;
     }
-    saveHiddenGames(data);
+    saveShownGames(data);
     return data;
 };
 
-// Toggle game hidden status in a list
-export const toggleGameHidden = (listName, gameId) => {
-    if (listName === 'Default') {
-        throw new Error('Cannot modify the Default list');
+export const toggleGameShown = (listName, gameId) => {
+    if (listName === 'All Games') {
+        throw new Error('Cannot modify the All Games list');
     }
-    const data = loadHiddenGames();
+    const data = loadShownGames();
     if (!data.lists[listName]) {
         throw new Error('List does not exist');
     }
@@ -104,17 +95,16 @@ export const toggleGameHidden = (listName, gameId) => {
         data.lists[listName].splice(index, 1);
     }
     
-    saveHiddenGames(data);
+    saveShownGames(data);
     return data;
 };
 
-// Get visible games based on active list
 export const getVisibleGames = (allGames) => {
-    const data = loadHiddenGames();
-    if (!data.activeList || data.activeList === 'Default' || !data.lists[data.activeList]) {
+    const data = loadShownGames();
+    if (!data.activeList || data.activeList === 'All Games' || !data.lists[data.activeList]) {
         return allGames;
     }
     
-    const hiddenIds = data.lists[data.activeList];
-    return allGames.filter(game => !hiddenIds.includes(game.id));
+    const shownIds = data.lists[data.activeList];
+    return allGames.filter(game => shownIds.includes(game.id));
 };
