@@ -847,19 +847,35 @@ body, html
           box-shadow: 0 0 15px rgba($primary-color, 0.3)
 
     .game-info-cell
-      .game-title
-        font-size: 1.1rem
-        color: $text-color
-        margin-bottom: 4px
+      .game-info
+        display: flex
+        align-items: center
 
-      .edit-input
-        width: 100%
-        padding: 8px
-        background: rgba(0, 0, 0, 0.3)
-        border: 2px solid $primary-color
-        border-radius: $retro-radius
-        color: $text-color
-        font-family: 'RetroGaming', sans-serif
+        .game-title, .game-name-edit
+          display: flex
+          align-items: center
+          gap: 0
+
+          .name
+            color: $text-color
+
+          .extension
+            color: rgba($text-color, 0.6)
+            padding: 2px 4px
+            background: rgba(0, 0, 0, 0.3)
+            border-radius: $retro-radius
+
+        .game-name-edit
+          display: flex
+          align-items: center
+          gap: 0
+          width: 100%
+
+          .edit-input
+            flex: 1
+          
+          .extension
+            margin-left: -1px
 
     .console-cell
       width: 200px

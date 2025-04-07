@@ -132,22 +132,29 @@ const RomList = ({refresh, searchQuery, onSearch}) => {
                                 />
                             </td>
                             <td className="game-info-cell">
-                                {editingId === rom.id ? (
-                                    <input
-                                        type="text"
-                                        className="edit-input"
-                                        value={editName}
-                                        onChange={(e) => setEditName(e.target.value)}
-                                        onKeyDown={(e) => e.key === 'Enter' && handleSave()}
-                                    />
-                                ) : (
-                                    <div className="game-title">{rom.title.replace(/_/g, ' ')}</div>
-                                )}
+                                <div className="game-info">
+                                    {editingId === rom.id ? (
+                                        <div className="game-name-edit">
+                                            <input
+                                                type="text"
+                                                className="edit-input"
+                                                value={editName}
+                                                onChange={(e) => setEditName(e.target.value)}
+                                                onKeyDown={(e) => e.key === 'Enter' && handleSave()}
+                                            />
+                                            <span className="extension">.{rom.extension}</span>
+                                        </div>
+                                    ) : (
+                                        <div className="game-title">
+                                            <span className="name">{rom.title.replace(/_/g, ' ')}</span>
+                                            <span className="extension">.{rom.extension}</span>
+                                        </div>
+                                    )}
+                                </div>
                             </td>
                             <td className="console-cell">
                                 <div className="console-info">
                                     <span className="console-name">{console?.name || 'Unknown'}</span>
-                                    <span className="console-ext">.{rom.extension}</span>
                                 </div>
                             </td>
                             <td className="actions-cell">
