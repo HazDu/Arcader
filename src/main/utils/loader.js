@@ -90,3 +90,16 @@ export const cacheGameThumbnails = async () => {
         await downloadGameImage(id, game.id);
     }
 }
+
+export const cacheMissingThumbnails = async () => {
+    const games = retrieveGames();
+
+    for (const game of games) {
+        const console = findCoreByExtension(game.extension);
+        const id = await lookupGameId(game.title + " " + console.name);
+
+        if (!fs.existsSync(`./data/cache/${game.id}.png`)) {
+            await downloadGameImage(id, game.id);
+        }
+    }
+}
