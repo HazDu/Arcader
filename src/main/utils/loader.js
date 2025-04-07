@@ -76,7 +76,7 @@ export const retrieveGames = (filterHidden = true) => {
         return {
             id, 
             title: title.replaceAll("_", " ").split(".")[0],
-            thumbnail: `/api/image/${id}`, 
+            thumbnail: `http://localhost:${SERVER_PORT}/api/image/${id}`, 
             extension: file.split(".").pop()
         };
     });
