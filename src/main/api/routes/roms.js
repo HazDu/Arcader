@@ -4,7 +4,7 @@ import path from 'path';
 import fs from 'fs';
 import { deleteFile, renameFile } from '../../utils/fileSystem';
 import { getNextFreeId, downloadGameImage, lookupGameId, retrieveGames } from '../../utils/loader';
-import { findCoreByExtension } from '../../utils/emulation';
+import { findCoreByExtension, getAllConsoles } from '../../utils/emulation';
 
 const romRouter = Router();
 const storage = multer.diskStorage({
@@ -106,6 +106,15 @@ romRouter.put('/:id/rename', (req, res) => {
             success: true,
             newFilename: `${id}-${formattedName}${ext}`
         });
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+});
+
+romRouter.get('/consoles', (req, res) => {
+    try {
+        const consoles = getAllConsoles();
+        res.json(consoles);
     } catch (error) {
         res.status(500).json({ error: error.message });
     }

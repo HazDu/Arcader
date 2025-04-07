@@ -125,3 +125,14 @@ export const stop = (webContents) => {
 
     return true;
 }
+
+export const getAllConsoles = () => {
+    const uniqueConsoles = [...new Set(cores.map(core => core.name))];
+    return uniqueConsoles.map(name => {
+        const core = cores.find(c => c.name === name);
+        return {
+            name,
+            extensions: core.extensions
+        };
+    });
+};
