@@ -25,6 +25,7 @@
     "express": "^5.1.0",
     "framer-motion": "^12.6.3",
     "joystick": "^0.1.2",
+    "multer": "^1.4.5-lts.2",
     "plist": "^3.1.0",
     "react-router-dom": "^7.5.0",
     "react-transition-group": "^4.4.5",
