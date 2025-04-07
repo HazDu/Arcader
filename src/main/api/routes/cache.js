@@ -24,7 +24,7 @@ const loadImage = (key, res) => {
     }
 }
 
-imageRouter.get("/*", (req, res) => {
+imageRouter.get("/:file{.:ext}", (req, res) => {
     const url = req.url;
     const key = url.substring(1);
 
