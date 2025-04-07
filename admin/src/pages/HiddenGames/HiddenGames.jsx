@@ -182,7 +182,7 @@ const HiddenGames = () => {
                     className={`game-card ${isGameHidden(game.id) ? 'hidden' : ''} ${selectedList === 'Default' ? 'default-list' : ''}`}
                     onClick={() => selectedList !== 'Default' && toggleGame(game.id)}
                   >
-                    <img src={game.thumbnail} alt={game.title} className="game-thumbnail" />
+                    <img src={game.thumbnail.replace("http://localhost:5328", "")} alt={game.title} className="game-thumbnail" />
                     <div className="game-info">
                       <span className="game-title">{game.title}</span>
                       {selectedList !== 'Default' && (

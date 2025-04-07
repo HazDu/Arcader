@@ -23,14 +23,7 @@ export const ManageRoms = () => {
                 </div>
 
                 <div className="list-section">
-                    <input
-                        type="text"
-                        className="search-bar"
-                        placeholder="Search ROMs..."
-                        value={searchQuery}
-                        onChange={(e) => setSearchQuery(e.target.value)}
-                    />
-                    <RomList refresh={refreshTrigger} searchQuery={searchQuery}/>
+                    <RomList refresh={refreshTrigger} searchQuery={searchQuery} onSearch={setSearchQuery}/>
                 </div>
             </div>
         </div>

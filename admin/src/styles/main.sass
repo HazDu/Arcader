@@ -10,6 +10,7 @@ $primary-color: #A91515
 $surface-color: #1e1e1e
 $error-color: #cf6679
 $sidebar-width: 280px
+$retro-radius: 2px
 
 body, html
   margin: 0
@@ -109,7 +110,7 @@ body, html
       width: 100%
       cursor: pointer
       border: 2px solid rgba($error-color, 0.3)
-      border-radius: 0.5rem
+      border-radius: $retro-radius
       margin: 0
       font-family: 'RetroGaming', sans-serif
       color: $text-color
@@ -134,7 +135,7 @@ body, html
   text-align: center
   padding: 4rem
   background-color: rgba(0, 0, 0, 0.6)
-  border-radius: 1rem
+  border-radius: $retro-radius
   margin: 2rem
   border: 2px solid $primary-color
 
@@ -155,7 +156,7 @@ body, html
   padding: 1rem
   background-color: rgba(0, 0, 0, 0.7)
   border: 2px solid $primary-color
-  border-radius: 0.5rem
+  border-radius: $retro-radius
   color: $text-color
   font-family: 'RetroGaming', sans-serif
   font-size: 1rem
@@ -173,7 +174,7 @@ body, html
   margin-bottom: 2rem
   background-color: rgba(0, 0, 0, 0.7)
   padding: 1rem 2rem
-  border-radius: 0.5rem
+  border-radius: $retro-radius
   border: 2px solid $primary-color
 
   h2
@@ -183,7 +184,7 @@ body, html
 
 .upload-zone
   border: 4px solid $primary-color
-  border-radius: 1rem
+  border-radius: $retro-radius
   padding: 3rem
   text-align: center
   margin-bottom: 2rem
@@ -200,7 +201,7 @@ body, html
   border-collapse: separate
   border-spacing: 0
   background-color: rgba(0, 0, 0, 0.7)
-  border-radius: 1rem
+  border-radius: $retro-radius
   overflow: hidden
   margin-bottom: 2rem
 
@@ -221,7 +222,7 @@ body, html
   cursor: pointer
   padding: 0.8rem 1.5rem
   margin: 0 0.5rem
-  border-radius: 0.5rem
+  border-radius: $retro-radius
   font-family: 'RetroGaming', sans-serif
   transition: all 0.2s
   background: rgba($primary-color, 0.1) none
@@ -245,7 +246,7 @@ body, html
   border: 2px solid $primary-color
   color: $text-color
   padding: 0.8rem
-  border-radius: 0.5rem
+  border-radius: $retro-radius
   width: 100%
   font-family: 'RetroGaming', sans-serif
   box-sizing: border-box
@@ -253,7 +254,7 @@ body, html
 .rom-thumbnail
   height: 80px
   object-fit: cover
-  border-radius: 0.5rem
+  border-radius: $retro-radius
   border: 2px solid $primary-color
   transition: all 0.2s
 
@@ -294,7 +295,7 @@ body, html
 
   .create-list-form
     background: linear-gradient(45deg, rgba($primary-color, 0.1), rgba($primary-color, 0.2))
-    border-radius: 1rem
+    border-radius: $retro-radius
     padding: 1.5rem
     border: 2px solid $primary-color
     box-shadow: 0 0 20px rgba($primary-color, 0.1)
@@ -315,7 +316,7 @@ body, html
         padding: 0.8rem
         background-color: rgba(0, 0, 0, 0.5)
         border: 2px solid rgba($primary-color, 0.5)
-        border-radius: 0.5rem
+        border-radius: $retro-radius
         color: $text-color
         font-family: 'RetroGaming', sans-serif
         transition: all 0.2s
@@ -346,7 +347,7 @@ body, html
 
   .lists-container
     background: rgba(0, 0, 0, 0.7)
-    border-radius: 1rem
+    border-radius: $retro-radius
     border: 2px solid $primary-color
     display: flex
     flex-direction: column
@@ -370,7 +371,7 @@ body, html
     .active-badge
       background: rgba($primary-color, 0.2)
       padding: 0.4rem 0.8rem
-      border-radius: 1rem
+      border-radius: $retro-radius
       font-size: 0.9rem
       border: 1px solid rgba($primary-color, 0.5)
       color: lighten($primary-color, 20%)
@@ -389,7 +390,7 @@ body, html
 
     &::-webkit-scrollbar-thumb
       background-color: rgba($primary-color, 0.3)
-      border-radius: 3px
+      border-radius: $retro-radius
 
       &:hover
         background-color: rgba($primary-color, 0.5)
@@ -397,7 +398,7 @@ body, html
   .list-card
     background: linear-gradient(45deg, rgba(0, 0, 0, 0.6), rgba($primary-color, 0.1))
     border: 2px solid rgba($primary-color, 0.3)
-    border-radius: 0.8rem
+    border-radius: $retro-radius
     padding: 1rem
     cursor: pointer
     transition: all 0.2s
@@ -481,7 +482,7 @@ body, html
       display: flex
       align-items: center
       justify-content: center
-      border-radius: 50%
+      border-radius: $retro-radius !important
 
       &:hover
         background: rgba($primary-color, 0.2)
@@ -511,7 +512,7 @@ body, html
       color: $text-color
       font-size: 1.1rem
       padding: 0.5rem
-      border-radius: 0.3rem
+      border-radius: $retro-radius
       transition: all 0.2s
 
       &:hover
@@ -535,7 +536,7 @@ body, html
         display: flex
         align-items: center
         justify-content: center
-        border-radius: 50%
+        border-radius: $retro-radius !important
 
         &:hover
           background: rgba($primary-color, 0.2)
@@ -565,7 +566,7 @@ body, html
   .games-section
     flex: 1
     background-color: rgba(0, 0, 0, 0.7)
-    border-radius: 1rem
+    border-radius: $retro-radius
     padding: 1.5rem
     border: 2px solid $primary-color
     height: 100%
@@ -611,7 +612,7 @@ body, html
 
     &::-webkit-scrollbar-thumb
       background-color: rgba($primary-color, 0.3)
-      border-radius: 4px
+      border-radius: $retro-radius
 
       &:hover
         background-color: rgba($primary-color, 0.5)
@@ -619,7 +620,7 @@ body, html
   .game-card
     background-color: rgba(0, 0, 0, 0.4)
     border: 2px solid rgba($primary-color, 0.3)
-    border-radius: 0.5rem
+    border-radius: $retro-radius
     overflow: hidden
     cursor: pointer
     transition: all 0.2s
@@ -659,6 +660,7 @@ body, html
       object-fit: cover
       border-bottom: 2px solid rgba($primary-color, 0.3)
       transition: all 0.2s
+      border-radius: $retro-radius
 
       &:hover
         filter: brightness(1.2)
@@ -679,7 +681,7 @@ body, html
         color: rgba($text-color, 0.7)
         padding: 0.3rem 0.6rem
         background-color: rgba(0, 0, 0, 0.3)
-        border-radius: 0.3rem
+        border-radius: $retro-radius
         display: inline-block
 
 .manage-roms
@@ -705,7 +707,7 @@ body, html
       align-items: center
       background: rgba(0, 0, 0, 0.4)
       border: 2px dashed rgba($primary-color, 0.5)
-      border-radius: 1rem
+      border-radius: $retro-radius
       padding: 2rem
       transition: all 0.2s
 
@@ -725,8 +727,178 @@ body, html
   .list-section
     background: rgba(0, 0, 0, 0.4)
     border: 2px solid $primary-color
-    border-radius: 1rem
+    border-radius: $retro-radius
     padding: 1.5rem
 
     .search-bar
       margin-bottom: 1.5rem
+
+.rom-list-container
+  .filters
+    display: flex
+    gap: 1rem
+    margin-bottom: 2rem
+    align-items: center
+
+    .search-wrapper
+      position: relative
+      flex: 1
+
+      .search-icon
+        position: absolute
+        left: 1rem
+        top: 50%
+        transform: translateY(-50%)
+        color: rgba($text-color, 0.5)
+
+      .search-bar
+        width: 100%
+        padding: 0.8rem 1rem 0.8rem 2.5rem
+        margin: 0
+        background: rgba(0, 0, 0, 0.5)
+        border-radius: $retro-radius
+
+    .console-filter
+      min-width: 200px
+      padding: 0.8rem 1rem
+      background: rgba(0, 0, 0, 0.5)
+      border: 2px solid $primary-color
+      border-radius: $retro-radius
+      color: $text-color
+      font-family: 'RetroGaming', sans-serif
+
+      &:focus
+        outline: none
+        box-shadow: 0 0 15px rgba($primary-color, 0.3)
+
+  .rom-table
+    width: 100%
+    border-collapse: collapse
+
+    th
+      text-align: left
+      padding: 12px
+      border-bottom: 2px solid #333
+      background: #1a1a1a
+
+      &.actions-column
+        text-align: right
+        width: 150px
+
+    td
+      padding: 12px
+      border-bottom: 1px solid #333
+      vertical-align: middle
+
+      &.actions-cell
+        text-align: right
+        white-space: nowrap
+
+    .console-info
+      display: flex
+      flex-direction: column
+      gap: 4px
+      
+      .console-name
+        font-weight: 500
+        color: #fff
+      
+      .console-ext
+        font-size: 12px
+        color: #888
+
+    .rom-thumbnail
+      width: 60px
+      height: 90px
+      object-fit: cover
+      border-radius: $retro-radius
+
+    .button
+      padding: 6px 12px
+      border-radius: $retro-radius
+      border: none
+      background: #2a2a2a
+      color: #fff
+      cursor: pointer
+      margin-left: 8px
+      transition: background 0.2s
+
+      &:hover
+        background: #3a3a3a
+
+      &.delete:hover
+        background: #d32f2f
+
+    .thumbnail-cell
+      width: 100px
+      padding: 8px
+      
+      .rom-thumbnail
+        width: 80px
+        height: 120px
+        object-fit: cover
+        border-radius: $retro-radius
+        border: 2px solid $primary-color
+        transition: transform 0.2s
+        display: block
+
+        &:hover
+          transform: scale(1.1)
+          box-shadow: 0 0 15px rgba($primary-color, 0.3)
+
+    .game-info-cell
+      .game-title
+        font-size: 1.1rem
+        color: $text-color
+        margin-bottom: 4px
+
+      .edit-input
+        width: 100%
+        padding: 8px
+        background: rgba(0, 0, 0, 0.3)
+        border: 2px solid $primary-color
+        border-radius: $retro-radius
+        color: $text-color
+        font-family: 'RetroGaming', sans-serif
+
+    .console-cell
+      width: 200px
+      
+      .console-info
+        display: flex
+        flex-direction: column
+        gap: 4px
+        
+        .console-name
+          font-weight: 500
+          color: rgba($text-color, 0.9)
+        
+        .console-ext
+          font-size: 0.8rem
+          color: rgba($text-color, 0.6)
+
+    .actions-cell
+      width: 160px
+      text-align: right
+      white-space: nowrap
+
+      .button
+        padding: 6px 12px
+        margin-left: 8px
+        background: rgba($primary-color, 0.1)
+        border: 1px solid $primary-color
+        color: $text-color
+        border-radius: $retro-radius
+        cursor: pointer
+        transition: all 0.2s
+
+        &:hover
+          background: rgba($primary-color, 0.2)
+          transform: translateY(-2px)
+
+        &.delete
+          background: rgba($error-color, 0.1)
+          border-color: $error-color
+
+          &:hover
+            background: rgba($error-color, 0.2)
