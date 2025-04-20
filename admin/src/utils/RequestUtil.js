@@ -48,11 +48,15 @@ export const get = async (endpoint) => {
     return response.json();
 };
 
-export const post = async (endpoint, data) => {
+export const post = async (endpoint, data, isFormData = false) => {
+    const headers = isFormData ? {
+        'Authorization': localStorage.getItem('adminToken') ? `Bearer ${localStorage.getItem('adminToken')}` : ''
+    } : getHeaders();
+    
     const response = await fetch(`${API_BASE_URL}${endpoint}`, {
         method: 'POST',
-        headers: getHeaders(),
-        body: JSON.stringify(data)
+        headers: headers,
+        body: isFormData ? data : JSON.stringify(data)
     });
 
     if (!response.ok) {

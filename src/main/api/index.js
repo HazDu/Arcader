@@ -2,6 +2,8 @@ import express from "express";
 import imageRouter from "./routes/cache";
 import romRouter from "./routes/roms";
 import hiddenRouter from "./routes/hidden";
+import coresRouter from "./routes/cores";
+import configRouter from "./routes/config";
 import { ensureDirectories } from "../utils/fileSystem";
 
 const app = express();
@@ -41,6 +43,8 @@ apiRouter.use("/image", imageRouter);
 
 apiRouter.use("/roms", authenticateRequest, romRouter);
 apiRouter.use("/hidden", authenticateRequest, hiddenRouter);
+apiRouter.use("/cores", authenticateRequest, coresRouter);
+apiRouter.use("/config", authenticateRequest, configRouter);
 
 app.use("/api", apiRouter);
 

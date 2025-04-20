@@ -24,6 +24,9 @@ const MainLayout = ({children}) => {
                     <Link to="/" className={`nav-item ${isActive('/') ? 'active' : ''}`}>
                         Manage ROMs
                     </Link>
+                    <Link to="/cores" className={`nav-item ${isActive('/cores') ? 'active' : ''}`}>
+                        Manage Cores
+                    </Link>
                     <Link to="/hidden" className={`nav-item ${isActive('/hidden') ? 'active' : ''}`}>
                         Hidden Games
                     </Link>

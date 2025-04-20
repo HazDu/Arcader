@@ -13,4 +13,7 @@ contextBridge.exposeInMainWorld('electron', {
     send: (channel, data) => {
         ipcRenderer.send(channel, data);
     },
+    getConfig: async (section) => {
+        return await ipcRenderer.invoke('get-config', section);
+    }
 });

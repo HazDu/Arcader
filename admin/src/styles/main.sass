@@ -123,7 +123,7 @@ body, html
 
       &.active
         background-color: rgba($primary-color, 0.2)
-        
+
         &::before
           background: $primary-color
 
@@ -925,11 +925,11 @@ body, html
       display: flex
       flex-direction: column
       gap: 4px
-      
+
       .console-name
         font-weight: 500
         color: #fff
-      
+
       .console-ext
         font-size: 12px
         color: #888
@@ -959,7 +959,7 @@ body, html
     .thumbnail-cell
       width: 100px
       padding: 8px
-      
+
       .rom-thumbnail
         width: 80px
         height: 120px
@@ -1000,22 +1000,22 @@ body, html
 
           .edit-input
             flex: 1
-          
+
           .extension
             margin-left: -1px
 
     .console-cell
       width: 200px
-      
+
       .console-info
         display: flex
         flex-direction: column
         gap: 4px
-        
+
         .console-name
           font-weight: 500
           color: rgba($text-color, 0.9)
-        
+
         .console-ext
           font-size: 0.8rem
           color: rgba($text-color, 0.6)
@@ -1045,3 +1045,160 @@ body, html
 
           &:hover
             background: rgba($error-color, 0.2)
+
+.manage-cores
+  .section-header
+    margin-bottom: 2rem
+
+    .section-description
+      color: rgba($text-color, 0.7)
+      margin-top: 0.5rem
+      font-size: 0.9rem
+
+    .action-buttons
+      display: flex
+      gap: 1rem
+
+      .button.restore-backup
+        background-color: rgba($primary-color, 0.05)
+        border-color: rgba($primary-color, 0.4)
+
+        &:hover
+          background-color: rgba($primary-color, 0.15)
+
+  .content-section
+    display: flex
+    flex-direction: column
+    gap: 2rem
+
+  .message
+    padding: 1rem
+    margin-bottom: 1.5rem
+    border-radius: $retro-radius
+    font-size: 0.9rem
+
+    &.success
+      background-color: rgba(40, 167, 69, 0.1)
+      border: 1px solid rgba(40, 167, 69, 0.3)
+      color: #2ad94d
+
+      .status-details
+        margin-top: 0.5rem
+        font-size: 0.85rem
+        color: rgba(#2ad94d, 0.8)
+
+    &.error
+      background-color: rgba($error-color, 0.1)
+      border: 1px solid rgba($error-color, 0.3)
+      color: $error-color
+
+  .cores-summary
+    display: flex
+    gap: 1.5rem
+    margin-bottom: 1.5rem
+    padding: 1rem
+    background-color: rgba(0, 0, 0, 0.4)
+    border: 1px solid rgba($primary-color, 0.3)
+    border-radius: $retro-radius
+
+    .summary-item
+      display: flex
+      flex-direction: column
+      align-items: center
+
+      .label
+        font-size: 0.8rem
+        color: rgba($text-color, 0.7)
+        margin-bottom: 0.3rem
+
+      .value
+        font-size: 1.5rem
+        color: $primary-color
+        font-weight: bold
+
+  .upload-section
+    background: rgba(0, 0, 0, 0.4)
+    border: 2px solid $primary-color
+    border-radius: $retro-radius
+    padding: 1.5rem
+
+    h3
+      margin-top: 0
+      color: $primary-color
+      margin-bottom: 1.5rem
+
+    .form-group
+      margin-bottom: 1.5rem
+
+      label
+        display: block
+        margin-bottom: 0.5rem
+        font-size: 0.9rem
+        color: rgba($text-color, 0.9)
+
+      small
+        display: block
+        margin-top: 0.5rem
+        font-size: 0.8rem
+        color: rgba($text-color, 0.6)
+
+      .file-input-wrapper
+        position: relative
+
+        .file-input
+          width: 100%
+          padding: 0.8rem
+          background-color: rgba(0, 0, 0, 0.5)
+          border: 2px solid $primary-color
+          border-radius: $retro-radius
+          color: $text-color
+          font-family: 'RetroGaming', sans-serif
+          cursor: pointer
+
+  .list-section
+    background: rgba(0, 0, 0, 0.4)
+    border: 2px solid $primary-color
+    border-radius: $retro-radius
+    padding: 1.5rem
+
+    h3
+      margin-top: 0
+      color: $primary-color
+      margin-bottom: 1.5rem
+
+  .cores-table
+    .missing-core
+      opacity: 0.6
+      background-color: rgba($error-color, 0.05)
+
+      &:hover
+        opacity: 0.8
+
+    .status
+      padding: 0.3rem 0.6rem
+      border-radius: $retro-radius
+      font-size: 0.8rem
+      display: inline-block
+
+      &.installed
+        background-color: rgba(40, 167, 69, 0.1)
+        border: 1px solid rgba(40, 167, 69, 0.3)
+        color: #2ad94d
+
+      &.missing
+        background-color: rgba($error-color, 0.1)
+        border: 1px solid rgba($error-color, 0.3)
+        color: $error-color
+
+    .extensions-list
+      display: flex
+      flex-wrap: wrap
+      gap: 0.5rem
+
+      .extension-tag
+        background: rgba($primary-color, 0.1)
+        border: 1px solid rgba($primary-color, 0.3)
+        padding: 0.2rem 0.5rem
+        border-radius: $retro-radius
+        font-size: 0.8rem
+        color: rgba($text-color, 0.9)

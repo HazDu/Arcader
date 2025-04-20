@@ -7,6 +7,7 @@ import {onAxis, onKeyDown} from "./utils/joystick";
 import {startById} from"./utils/emulation";
 import {startServer} from "./api";
 import {cacheMissingThumbnails, retrieveGames} from "./utils/loader";
+import {getConfig} from "./utils/config";
 
 let mainWindow;
 
@@ -66,6 +67,10 @@ app.whenReady().then(() => {
             return;
         }
         loadConnector();
+    });
+
+    ipcMain.handle("get-config", (event, section) => {
+        return getConfig(section);
     });
 
     createWindow();

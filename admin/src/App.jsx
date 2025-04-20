@@ -6,6 +6,8 @@ import Login from './pages/Login/Login';
 import MainLayout from './components/MainLayout';
 import HiddenGames from './pages/HiddenGames';
 import ManageRoms from './pages/ManageRoms';
+import ManageCores from './pages/ManageCores';
+import CoinScreen from './pages/CoinScreen';
 
 function App() {
   return (
@@ -31,6 +33,20 @@ function App() {
             <ProtectedRoute>
               <MainLayout>
                 <ManageRoms />
+              </MainLayout>
+            </ProtectedRoute>
+          } />
+          <Route path="/cores" element={
+            <ProtectedRoute>
+              <MainLayout>
+                <ManageCores />
+              </MainLayout>
+            </ProtectedRoute>
+          } />
+          <Route path="/customization/coin" element={
+            <ProtectedRoute>
+              <MainLayout>
+                <CoinScreen />
               </MainLayout>
             </ProtectedRoute>
           } />
