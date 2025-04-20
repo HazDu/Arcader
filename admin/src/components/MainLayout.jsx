@@ -1,9 +1,7 @@
-import {useState} from 'react';
 import {Link, useLocation, useNavigate} from 'react-router-dom';
 import {useAuth} from '../context/AuthContext';
 
 const MainLayout = ({children}) => {
-    const [customizationOpen, setCustomizationOpen] = useState(false);
     const location = useLocation();
     const navigate = useNavigate();
     const {logout} = useAuth();
@@ -36,30 +34,27 @@ const MainLayout = ({children}) => {
                         Coin Acceptor
                     </Link>
 
-                    <div className={`nav-item ${customizationOpen ? 'active' : ''}`}
-                         onClick={() => setCustomizationOpen(!customizationOpen)}
-                         style={{cursor: 'pointer'}}>
+                    <Link to="/customization/coin" 
+                          className={`nav-item ${isActive('/customization/coin') || isActive('/customization/splash') ? 'active' : ''}`}>
                         Customization
+                    </Link>
+
+                    <div className="sub-menu">
+                        <Link to="/customization/coin"
+                              className={`nav-item ${isActive('/customization/coin') ? 'active' : ''}`}>
+                            Coin Screen
+                        </Link>
+                        <Link to="/customization/splash"
+                              className={`nav-item ${isActive('/customization/splash') ? 'active' : ''}`}>
+                            Splash
+                        </Link>
                     </div>
 
-                    {customizationOpen && (
-                        <div className="sub-menu">
-                            <Link to="/customization/coin"
-                                  className={`nav-item ${isActive('/customization/coin') ? 'active' : ''}`}>
-                                Coin Screen
-                            </Link>
-                            <Link to="/customization/splash"
-                                  className={`nav-item ${isActive('/customization/splash') ? 'active' : ''}`}>
-                                Splash
-                            </Link>
-                        </div>
-                    )}
                 </nav>
 
                 <div className="sidebar-footer">
                     <button onClick={handleLogout} className="nav-item">
-                        <i className="fas fa-sign-out-alt"></i>
-                        <span>Logout</span>
+                        Logout
                     </button>
                 </div>
             </aside>

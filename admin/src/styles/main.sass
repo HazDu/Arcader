@@ -73,6 +73,7 @@ body, html
     display: block
     transition: all 0.2s
     position: relative
+    font-size: 1rem
 
     &:hover, &.active
       background-color: rgba($primary-color, 0.2)
@@ -89,12 +90,42 @@ body, html
       box-shadow: 0 0 10px rgba($primary-color, 0.5)
 
   .sub-menu
-    padding-left: 1rem
-    background-color: rgba(0, 0, 0, 0.3)
+    background-color: #000
+    position: relative
+    margin-top: -1px
+    padding-bottom: 0
+
+    &::before
+      content: ''
+      position: absolute
+      left: 3.5rem
+      top: 0
+      height: calc(100% - 1.4rem)
+      width: 3px
+      background: $primary-color
 
     .nav-item
-      font-size: 0.9rem
-      padding: 0.6rem 2rem
+      padding: 0.7rem 2rem 0.7rem 5rem
+      position: relative
+
+      &::before
+        content: ''
+        position: absolute
+        left: 3.5rem
+        top: 50%
+        width: 1.2rem
+        height: 3px
+        background: $primary-color
+
+      &:hover
+        padding-left: 5.5rem
+        background-color: rgba($primary-color, 0.15)
+
+      &.active
+        background-color: rgba($primary-color, 0.2)
+        
+        &::before
+          background: $primary-color
 
   .sidebar-footer
     margin-top: auto
@@ -109,7 +140,6 @@ body, html
       border: none
       width: 100%
       cursor: pointer
-      border: 2px solid rgba($error-color, 0.3)
       border-radius: $retro-radius
       margin: 0
       font-family: 'RetroGaming', sans-serif
