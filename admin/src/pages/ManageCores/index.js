@@ -1,0 +1,1 @@
+export {ManageCores as default} from "./ManageCores.jsx";
