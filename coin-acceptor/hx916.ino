@@ -1,41 +1,30 @@
-#include <SoftwareSerial.h>
+#include <Arduino.h>
 
-const int coinPin = 2;
-const unsigned long interval = 5000;
+int impulsCount = 0;
+unsigned long lastImpulseTime = 0;
+bool messageSent = false;
 
-SoftwareSerial coinSerial(coinPin, -1);
+const unsigned long MIN_IMPULSE_INTERVAL_MS = 100;
 
-String coinBuffer = "";
-unsigned long previousMillis = 0;
-bool coinDetected = false;
+void incomingImpuls() {
+  unsigned long currentMillis = millis();
+
+  if (currentMillis - lastImpulseTime > MIN_IMPULSE_INTERVAL_MS) {
+    impulsCount++;
+    lastImpulseTime = currentMillis;
+    messageSent = false;
+  }
+}
 
 void setup() {
   Serial.begin(9600);
-  coinSerial.begin(9600);
+  attachInterrupt(digitalPinToInterrupt(2), incomingImpuls, CHANGE);
 }
 
 void loop() {
-  unsigned long currentMillis = millis();
-
-  if (coinSerial.available() > 0) {
-    char received = coinSerial.read();
-
-    if ((uint8_t)received >= 100) return;
-
-    if (!coinDetected) {
-      Serial.println(100073000);
-      coinDetected = true;
-    }
-
-    coinBuffer += String((uint8_t)received);
-  }
-
-  if (currentMillis - previousMillis >= interval) {
-    if (coinDetected) {
-      coinDetected = false;
-      coinBuffer = "";
-    }
-
-    previousMillis = currentMillis;
+  if (impulsCount > 0 && !messageSent) {
+    Serial.println(100073000);
+    messageSent = true;
+    impulsCount = 0;
   }
 }
