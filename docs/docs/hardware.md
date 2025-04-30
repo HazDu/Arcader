@@ -3,7 +3,7 @@ Ok, du hast also die benötigten Baumaterialien organisiert? Gut! Dann zeige ich
  für jegliche Fragen erreichen.
 
 ## 1. Grundgestell
-Als erstes errichtest du das grundgestell, das mag etwas kompliziert wirken, jedoch sollte es mit der bereitgestellten Bildanleitung einfach sein.
+Als Erstes errichtest du das grundgestell, das mag etwas kompliziert wirken, jedoch sollte es mit der bereitgestellten Bildanleitung einfach sein.
 Zusätzlich kannst du dir das Modell aus allen Winkeln auf <a href="https://sketchfab.com/3d-models/arcade-machine-wood-base-7800679fd0f54210a0e7d8027a0f3bdf" target="_blank">Sketchfab</a>
  ansehen.  
  Für den Bau noch einige Tipps:  
@@ -11,7 +11,7 @@ Zusätzlich kannst du dir das Modell aus allen Winkeln auf <a href="https://sket
  -Für Verbindungen bestenfalls zwei Schrauben verwenden  
 
 ### Schritt 1:
-Zu erst baust du den Rahmen, der auf dem Boden steht.
+Zuerst baust du den Rahmen, der auf dem Boden steht.
 ![loading error.](./assets/pic_guide_1.png)
 
 ### Schritt 2:
@@ -26,7 +26,7 @@ Hier wiederholst du quasi einfach noch mal Schritt 1 nur weiter oben.
 Wenn du jetzt etwas an deinem Gestell wackelst, merkst du, dass es noch ziemlich nachgibt. Deshalb baust du jetzt einige diagonale Latten ein. Bevor du jetzt aber loslegst, scroll noch etwas nach unten und schau dir den [Tipp](https://arcader.hazdu.de/hardware/#tipp-schritt-4) an.
 ![loading error.](./assets/pic_guide_4.png)
 ### Tipp Schritt 4:
-Wenn du einen einfachen Weg brauchst, die Winkel an den Diagonalen zu messen, halte die Latte von außen an und mach innen einen Strich, genau so wie in der unteren Grafik.
+Wenn du einen einfachen Weg brauchst, die Winkel an den Diagonalen zu messen, halte die Latte von außen an und mach innen einen Strich, genauso wie in der unteren Grafik.
 ![loading error.](./assets/pic_guide_4.5.png)
 
 ### Schritt 5:
@@ -46,10 +46,10 @@ Um das obere Gebälge zu vervollständigen, kommt hinten noch eine Querstrebe hi
 ![loading error.](./assets/pic_guide_8.png)
 
 ### Schritt 9:
-Vielleicht siehst du schon wo später das Button Panel hin kommt. Dieses ist am besten leicht angeschrägt. Um dies zu erreichen, mach dir das Leben leicht, indem du einfach zwei Latten übereinander befestigst, so wie im Bild zu sehen. Die rote Markierung zeigt dir, welchen Abstand du dabei beachten musst. Aber Obacht! Auch hier gibt es wieder einen [Tipp](https://arcader.hazdu.de/hardware/#tipp-schritt-9).
+Vielleicht siehst du schon wo später das Button-Panel hinkommt. Dieses ist am besten leicht angeschrägt. Um dies zu erreichen, mach dir das Leben leicht, indem du einfach zwei Latten übereinander befestigst, so wie im Bild zu sehen. Die rote Markierung zeigt dir, welchen Abstand du dabei beachten musst. Aber Obacht! Auch hier gibt es wieder einen [Tipp](https://arcader.hazdu.de/hardware/#tipp-schritt-9).
 ![loading error.](./assets/pic_guide_9.png)
 ### Tipp Schritt 9:
-Um sicher zu gehen ob der Abstand wirklich stimmt, kannst du zum Prüfen deine 700mm x 200mm Platte drüber legen und schauen ob sie an allen Ecken bündig aufliegt.
+Um sicherzugehen, ob der Abstand wirklich stimmt, kannst du zum Prüfen deine 700mm x 200mm Platte darüber legen und schauen, ob sie an allen Ecken bündig aufliegt.
 ![loading error.](./assets/pic_guide_9.5.png)
 
 ### Schritt 10:
@@ -61,14 +61,14 @@ Hier musst du jetzt etwas improvisieren, da jeder Monitor einen etwas anderen Fo
 ![loading error.](./assets/pic_guide_11.png)
 
 ## 2. Button Panel
-Als nächstes kümmerst du dich um das Button Panel Hier gibt es keine strikten Vorgaben, da du selbst entscheiden must, wie viele Buttons du für notwendig hällst und wie du sie anordnest, um sie angenehm zu drücken. Wenn du dir jedoch unsicher bist, kannst du dich an meinen Vorgaben orientieren, da sie auf dem standard Layout typischer Arcade Automaten basieren.
+Als Nächstes kümmerst, du dich um das Button-Panel hier gibt es keine strikten Vorgaben, da du selbst entscheiden must, wie viele Buttons du für notwendig hällst und wie du sie anordnest, um sie angenehm zu drücken. Wenn du dir jedoch unsicher bist, kannst du dich an meinen Vorgaben orientieren, da sie auf dem standard Layout typischer Arcade-Automaten basieren.
 
 ### Schritt 1:
 Als erstes nimmst du dir deine 700mm x 200mm Hartfaserplatte, sowie den 30mm Forstnerbohrer her. Dann bohrst du die Löcher für die Buttons und noch zwei, durch die du die Joysticks stecken kannst. Beachte beim Bohren, dass der Forstnerbohrer mehr Material greift, also solltest du nicht stur durchbohren, sondern ihn alle paar Sekunden aus dem Holz holen und ca. 10 Sek. warten. Das ganze könnte zum Beispiel so aussehen:
 ![loading error.](./assets/pic_guide_12.png)
 
 ### Schritt 2:
-Das Bild zeigt die Unterseite von deinem Button Panel. Halte den Joystick von unten gegen das Panel und richte ihn mittig entsprechend des Lochs aus. Dann fährst du jedes Loch in den Ecken des Joysticks nach. An den angezeichneten Stellen bohrst du jetzt durch und schraubst den Joystick fest.
+Das Bild zeigt die Unterseite von deinem Button Panel. Halte den Joystick von unten gegen das Panel und richte ihn mittig entsprechend dem Loch aus. Dann fährst du jedes Loch in den Ecken des Joysticks nach. An den angezeichneten Stellen bohrst du jetzt durch und schraubst den Joystick fest.
 ![loading error.](./assets/pic_guide_13.png)
 
 ### Schritt 3:
@@ -76,18 +76,18 @@ Jetzt steckst du in die übrigen Löcher im Panel die Buttons rein und ziehst be
 ![loading error.](./assets/pic_guide_14.png)
 
 ### Schritt 4:
-Als letztes schraubst du einfach dein Panel an den Automaten und fertig.
+Als Letztes schraubst du einfach dein Panel an den Automaten und fertig.
 ![loading error.](./assets/pic_guide_15.png)
 
 ## 3. Verkleidung
-In diesem Abschnitt geht es darum dein Gestell mit Platten zu verkleiden. Es kann sein, dass du hier einige Platten noch einige mm bis cm kürzen musst, nim dafür am besten ein Cutter Messer und ein Langes Lineal, eine Wasserwage oder ähnliches.
+In diesem Abschnitt geht es darum, dein Gestell mit Platten zu verkleiden. Es kann sein, dass du hier einige Platten noch einige mm bis cm kürzen musst, nim dafür am besten ein Cuttermesser und ein langes Lineal, eine Wasserwage oder ähnliches.
 
 ### Schritt 1:
-Zum Anfang mal was leichtes, du nimmst die 700mm x 1100mm Platte. Die kommt vorne dran, damit du das Teil auch gut treten kannst, wenn du mal wieder letzter in Mariokart wirst.
+Zum Anfang mal was Leichtes, du nimmst die 700mm x 1100mm Platte. Die kommt vorne dran, damit du das Teil auch gut treten kannst, wenn du mal wieder letzter in Mariokart wirst.
 ![loading error.](./assets/pic_guide_16.png)
 
 ### Schritt 2:
-Jetzt wirds leider doch noch mal bissel nerfig. Du musst jetzt nämlich ein mal die Ecken von deinem Bildschirm abmessen und diese auf die 700mm x 600mm Platte übertragen, das Ganze dann aussägen (Stichsäge oder Cutter) und festschrauben. Aber ich sag du schaffst das!
+Jetzt wirds leider doch noch mal bissel nerfig. Du musst jetzt nämlich ein mal die Ecken von deinem Bildschirm abmessen und diese auf die 700mm x 600mm Platte übertragen, das Ganze dann aussägen (Stichsäge oder Cutter) und festschrauben. Aber ich sage, du schaffst das!
 ![loading error.](./assets/pic_guide_17.png)
 
 ### Schritt 3:
@@ -104,10 +104,21 @@ Hast du dich entschieden? Gut, dann weißt du warscheinlich schon was kommt: fes
 ![loading error.](./assets/pic_guide_20.png)
 
 ### Schritt 6:
-Nun eine etwas andere Verkleidung: das LED Schild. Hier ist auch wieder deine Kreativität gefragt. Du kannst es natürlich leer lassen oder du überlegst dir ein Design. Hast du eins, kannst du dir z.B. einen Sticker davon anfertigen lassen. Ich habe mich hier für ein Negativ eines "Arcade" Schriftzugs entschieden. Dafür habe ich den Schriftzug ausgeschnitten, auf das glas gelegt und über alles mit Sprühfarbe drüber gesprüht. Das wichtigste ist nur, dass du am ende die Rückseite mit grobem Schleifpapier schleifst, um sie milchig und undurchsichtig zu machen, sodass lediglich das licht durch scheint, du aber nicht durch sehen kannst. Meins sieht so aus:
+Nun eine etwas andere Verkleidung: das LED-Schild. Hier ist auch wieder deine Kreativität gefragt. Du kannst es natürlich leer lassen oder du überlegst dir ein Design. Hast du eins, kannst du dir z.B. einen Sticker davon anfertigen lassen. Ich habe mich hier für ein Negativ eines "Arcade" Schriftzugs entschieden. Dafür habe ich den Schriftzug ausgeschnitten, auf das glas gelegt und über alles mit Sprühfarbe darüber gesprüht. Das Wichtigste ist nur, dass du am Ende die Rückseite mit grobem Schleifpapier schleifst, um sie milchig und undurchsichtig zu machen, sodass lediglich das Licht durch scheint, du aber nicht durchsehen kannst. Meins sieht so aus:
 ![loading error.](./assets/pic_guide_21.png)
 (Meine Handykamera mag das Schild nicht xD)
 
 ### Schritt 7:
 Und auch hier wieder: Festschrauben. Aber Achtung! das Plexiglas ist empfindlich also langsam und mit wenig Druck bohren und die Schrauben nicht zu fest ziehen.
 ![loading error.](./assets/pic_guide_22.png)
+
+## Coin Acceptor
+Solltest du vorhaben einen Münzschlitz einzubauen, ist dieser Abschnitt wichtig für dich. Ansonsten spring einfach zum [nächsten Abschnitt](https://arcader.hazdu.de/hardware/XXX).
+Die vielen kabel sehen vielleicht auch etwas verwirrend aus aber keine Sorge es ist ganz einfach! (jedoch wär es praktisch, wenn man mittelmäßig löten kann)
+
+### Verkablungs-Diagramm
+Gezeigt ist hier ein Arduino UNO, jedoch kannst du basicly jeden beliebigen nehmen, nur musst du eventuell den Code anpassen.
+Solltest du aus Gründen nicht Pin 2 nehmen wollen, kannst du auch alle anderen Pins verwenden.
+Logischerweise musst du den Arduino per USB mit deinem PC verbinden.
+Den Code für den arduino findest du [hier](https://github.com/HazDu/Arcader/tree/main/coin-acceptor).
+![loading error.](./assets/coin_acceptor_arduino_wiring.png)
