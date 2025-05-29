@@ -39,7 +39,7 @@
     "@electron-toolkit/eslint-config": "^2.1.0",
     "@electron-toolkit/eslint-config-prettier": "^3.0.0",
     "@vitejs/plugin-react": "^4.5.0",
-    "electron": "^36.3.1",
+    "electron": "^36.3.2",
     "electron-builder": "^26.0.12",
     "electron-vite": "^3.1.0",
     "eslint": "^9.27.0",
