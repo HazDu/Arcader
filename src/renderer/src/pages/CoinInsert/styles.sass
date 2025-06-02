@@ -7,7 +7,8 @@
   display: flex
   flex-direction: column
   align-items: center
-  justify-content: center
+  justify-content: flex-start
+  padding-top: 5rem
 
   .sub-text
     position: absolute
@@ -19,9 +20,11 @@
 .insert-page h1
   font-size: 62pt
   text-shadow: 0 0 1rem black
+  margin-bottom: 2rem
 
 .coin-animation
   display: flex
+  margin-bottom: 2rem
   .acceptor
     width: 12rem
 
@@ -38,3 +41,41 @@
     transform: translateX(-6rem)
   80%
     transform: translateX(0)
+
+.game-carousel-container
+  width: 100%
+  display: flex
+  flex-direction: column
+  justify-content: center
+  align-items: center
+  position: relative
+  margin-top: 2rem
+  height: 30rem
+
+  .game-carousel
+    display: flex
+    align-items: center
+    justify-content: center
+    position: relative
+    width: 80rem
+    height: 25rem
+
+    .carousel-item
+      position: absolute
+      left: 50%
+      transform-origin: center center
+
+      img
+        border-radius: 1rem
+        height: 20rem
+        transform: translateX(-50%)
+        transition: filter 0.3s ease
+        pointer-events: none
+        user-select: none
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5)
+
+  .current-game-name
+    font-size: 2.5rem
+    margin-top: 1rem
+    color: #A91515
+    text-shadow: 0 0 1rem black
