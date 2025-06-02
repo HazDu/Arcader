@@ -81,7 +81,7 @@ app.whenReady().then(() => {
 });
 
 const loadConnector = () => {
-    port = new SerialPort({path: process["COIN_ACCEPTOR_PATH"] || "/dev/ttyACM0", baudRate: 9600});
+    port = new SerialPort({path: process.env["COIN_ACCEPTOR_PATH"] || "/dev/ttyACM0", baudRate: 9600});
     parser = port.pipe(new ReadlineParser());
     port.on("open", () => {
         console.log("Coin acceptor connected");
