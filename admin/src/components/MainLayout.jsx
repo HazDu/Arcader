@@ -1,7 +1,7 @@
-import {Link, useLocation, useNavigate} from 'react-router-dom';
+import {Link, useLocation, useNavigate, Outlet} from 'react-router-dom';
 import {useAuth} from '../context/AuthContext';
 
-const MainLayout = ({children}) => {
+const MainLayout = () => {
     const location = useLocation();
     const navigate = useNavigate();
     const {logout} = useAuth();
@@ -66,7 +66,7 @@ const MainLayout = ({children}) => {
             </aside>
 
             <main className="main-content">
-                {children}
+                <Outlet />
             </main>
         </div>
     );
