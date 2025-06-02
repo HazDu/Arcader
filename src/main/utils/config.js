@@ -8,6 +8,14 @@ const DEFAULT_CONFIG = {
     insertMessage: 'INSERT COIN',
     infoMessage: 'Insert Coin to enter Game Library and choose a Game to play!',
     konamiCodeEnabled: false
+  },
+  systemSettings: {
+    enableJoystick: false,
+    disableCoinSlot: true,
+    coinAcceptorPath: '/dev/ttyACM0',
+    joystickIndex: 0,
+    adminUiPort: 5328,
+    steamGridDbApiKey: null
   }
 };
 

@@ -8,6 +8,7 @@ import HiddenGames from './pages/HiddenGames';
 import ManageRoms from './pages/ManageRoms';
 import ManageCores from './pages/ManageCores';
 import CoinScreen from './pages/CoinScreen';
+import SystemSettings from './pages/SystemSettings';
 
 function App() {
   return (
@@ -47,6 +48,13 @@ function App() {
             <ProtectedRoute>
               <MainLayout>
                 <CoinScreen />
+              </MainLayout>
+            </ProtectedRoute>
+          } />
+          <Route path="/settings" element={
+            <ProtectedRoute>
+              <MainLayout>
+                <SystemSettings />
               </MainLayout>
             </ProtectedRoute>
           } />

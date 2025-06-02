@@ -53,6 +53,9 @@ const MainLayout = ({children}) => {
                         </Link>
                     </div>
 
+                    <Link to="/settings" className={`nav-item ${isActive('/settings') ? 'active' : ''}`}>
+                        System Settings
+                    </Link>
                 </nav>
 
                 <div className="sidebar-footer">

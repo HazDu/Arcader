@@ -2,10 +2,12 @@ import fs from "fs";
 import https from "https";
 import path from "path";
 import {findCoreByExtension} from "./emulation";
-import { loadHiddenGames, getVisibleGames } from "./hiddenGames";
+import { getVisibleGames } from "./hiddenGames";
+import { getConfig } from "./config";
 
-const SERVER_PORT = process.env.ADMIN_UI_PORT || 5328;
-const API_KEY = process.env.STEAMGRIDDB_API_KEY;
+const config = getConfig('systemSettings') || {};
+const SERVER_PORT = config.adminUiPort || 5328;
+const API_KEY = config.steamGridDbApiKey;
 
 const getRootPath = () => {
     return process.cwd();

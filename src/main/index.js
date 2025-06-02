@@ -59,7 +59,8 @@ app.whenReady().then(() => {
             mainWindow.webContents.send("games-updated", retrieveGames(true));
         }, 10000);
 
-        if (process.env['DISABLE_COIN_SLOT']) {
+        const config = getConfig('systemSettings') || {};
+        if (config.disableCoinSlot) {
             mainWindow.webContents.send("acceptor-connected", true);
             setTimeout(() => {
                 mainWindow.webContents.send("coin-detected", true);
@@ -81,7 +82,8 @@ app.whenReady().then(() => {
 });
 
 const loadConnector = () => {
-    port = new SerialPort({path: process.env["COIN_ACCEPTOR_PATH"] || "/dev/ttyACM0", baudRate: 9600});
+    const config = getConfig('systemSettings') || {};
+    port = new SerialPort({path: config.coinAcceptorPath || "/dev/ttyACM0", baudRate: 9600});
     parser = port.pipe(new ReadlineParser());
     port.on("open", () => {
         console.log("Coin acceptor connected");

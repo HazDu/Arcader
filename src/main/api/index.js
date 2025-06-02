@@ -5,9 +5,11 @@ import hiddenRouter from "./routes/hidden";
 import coresRouter from "./routes/cores";
 import configRouter from "./routes/config";
 import { ensureDirectories } from "../utils/fileSystem";
+import { getConfig } from "../utils/config";
 
 const app = express();
-const SERVER_PORT = process.env.ADMIN_UI_PORT || 5328;
+const config = getConfig('systemSettings') || {};
+const SERVER_PORT = config.adminUiPort || 5328;
 const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || 'admin123';
 
 const ignoreCORS = (req, res, next) => {

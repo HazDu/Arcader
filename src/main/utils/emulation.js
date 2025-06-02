@@ -2,6 +2,7 @@ import cp from "child_process";
 import fs from "fs";
 import path from "path";
 import terminate from "terminate";
+import { getConfig } from "./config";
 
 let currentPid = null;
 let cores = [];
@@ -104,8 +105,9 @@ export const stop = (webContents) => {
     }
 
     currentPid = null;
-
-    webContents.send("game-stopped", process.env['DISABLE_COIN_SLOT']);
+    
+    const config = getConfig('systemSettings') || {};
+    webContents.send("game-stopped", config.disableCoinSlot);
 
     return true;
 }
