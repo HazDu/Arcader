@@ -1,3 +1,6 @@
+# IMPORTANT:
+## This whole project has been moved [HERE](https://github.com/ArcaderProject)! We did this because the project was getting to big for just one repositorie so we put it in an organization to better.. well 'orginize' it. :)
+
 <br />
 <p align="center">
   <a href="https://github.com/HazDu/Arcader">
