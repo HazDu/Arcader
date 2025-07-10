@@ -23,7 +23,7 @@
     "colorthief": "^2.6.0",
     "electron-updater": "^6.6.2",
     "express": "^5.1.0",
-    "framer-motion": "^12.23.0",
+    "framer-motion": "^12.23.1",
     "joystick": "^0.1.2",
     "multer": "^2.0.1",
     "node-7z": "^3.0.0",
