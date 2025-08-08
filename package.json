@@ -28,7 +28,7 @@
     "multer": "^2.0.2",
     "node-7z": "^3.0.0",
     "plist": "^3.1.0",
-    "react-router-dom": "^7.7.1",
+    "react-router-dom": "^7.8.0",
     "react-transition-group": "^4.4.5",
     "sass-embedded": "^1.90.0",
     "serialport": "^13.0.0",
