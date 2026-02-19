@@ -21,7 +21,7 @@
     "adm-zip": "^0.5.16",
     "axios": "^1.13.5",
     "colorthief": "^2.6.0",
-    "electron-updater": "^6.7.3",
+    "electron-updater": "^6.8.3",
     "express": "^5.2.1",
     "framer-motion": "^12.34.2",
     "joystick": "^0.1.2",
